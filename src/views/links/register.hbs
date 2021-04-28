@@ -1,0 +1,113 @@
+<div class="testbox container">
+    <form action="/register" method="POST">
+        <h2>Registra tu mascota aqui</h1>
+        <br />
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis nulla recusandae animi illo, reprehenderit
+            molestias aspernatur in omnis nisi, est pariatur. Sapiente beatae debitis est quis eos saepe praesentium ab.
+        </p>
+        <br />
+        <h4>Datos del dueño</h2>
+        <div class="item">
+            <p>Nombre</p>
+            <input type="text" name="name" placeholder="Ingresa tu nombre" required autofocus/>
+            <input type="text" name="lastname" placeholder="Ingresa tu apellido" required />
+        </div>
+        <div class="item">
+            <p>Email</p>
+            <input type="email" name="email" placeholder="Ingresa tu correo" required />
+        </div>
+        <div class="item">
+            <p>Telefono de referencia</p>
+            <input type="tel" name="phone" placeholder="Ingresa tu numero" required />
+        </div>
+        <br />
+        <h4>Datos de la mascota</h2>
+        <br />
+          <div class="item">
+            <p>Nombre de la mascota</p>
+            <input type="text" name="name_pet" placeholder="Nombre de la mascota" required />
+        </div>
+        <div class="item">
+            <p>Especie</p>
+            <input type="text" name="specie" placeholder="Ingresa tu correo" required />
+        </div>
+
+        <div class="item">
+            <p>Tamaño</p>
+            <select name="size">
+                <option value="small">Pequeño</option>
+                <option value="medium">Mediano</option>
+                <option value="big">Grande</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Sexo</p>
+            <select name="sex">
+                <option value="Male">Macho</option>
+                <option value="Female">Hembra</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Edad</p>
+            <input type="number" name="age" placeholder="Ingresa la edad de la mascota" required />
+        </div>
+         <div class="item">
+            <p>Cuando se perdio</p>
+            <input type="date" name="date" required />
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="item desired-outcome">
+            <p>Observaciones</p>
+            <div class="desired-outcome-item">
+                <textarea rows="5" name="observation"></textarea>
+                <small>Observaciones del animal.</small>
+            </div>
+        </div>
+        <!--div class="item">
+            <p>Email</p>
+            <input type="text" name="name" />
+        </div>
+        <div class="item address">
+            <p>Address</p>
+            <div class="street">
+                <input class="street-item" type="text" name="name" placeholder="Street address" />
+                <input class="street-item" type="text" name="name" placeholder="Street addres line 2" />
+                <input type="text" name="name" placeholder="City" />
+                <input type="text" name="name" placeholder="Region" />
+                <input type="text" name="name" placeholder="Postal / zip code" />
+                <select>
+                    <option value="">Country</option>
+                    <option value="1">Russia</option>
+                    <option value="2">Germany</option>
+                    <option value="3">France</option>
+                    <option value="4">Armenia</option>
+                    <option value="5">USA</option>
+                </select>
+            </div>
+        </div>
+       
+        <div class="item location">
+          <p>Incident location</p>
+          <input type="text" name="name"/>
+        </div>
+        <div class="item complaint-details">
+          <p>Complaint details</p>
+          <div class="complaint-details-item">
+            <textarea rows="5"></textarea>
+          </div>
+        </div>
+        <div class="item desired-outcome">
+          <p>Desired outcome</p>
+          <div class="desired-outcome-item">
+            <textarea rows="5"></textarea>
+            <small>By signing you declare that all information you have entered is truthful and accurate.</small>
+          </div>
+        </div>
+        <h4>Your signature</h4>
+        <textarea rows="5"></textarea>
+        <small>By signing you declare that all information you have entered is truthful and accurate.</small-->
+        <div class="btn-block">
+            <button type="submit">Send</button>
+        </div>
+    </form>
+</div>
