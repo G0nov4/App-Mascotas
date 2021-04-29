@@ -47,8 +47,7 @@ app.use(require('./routes/autentication'));
 
 //
 app.use('/links', require('./routes/links'));
-
-app.use('/Register',require('./routes/register'));
+app.use('/Register',require('./routes/register_encontradas'));
 
 
 // Public

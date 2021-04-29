@@ -2,6 +2,8 @@
     --background: #f0f0f0;
     --nav_color: #1e1d26;
     --text-color:#fcfcfc;
+    --turquoise-1: #16a085;
+    --turquoise-2:#1abc9c;
 }
 *,
 *::after,
@@ -47,4 +49,16 @@ nav .logo a{
     text-decoration: none;
     margin: 0 10px;
     color: var(--text-color);
+}
+
+.signin{
+
+}
+.signup{
+    border-radius: 5px;
+    padding: 7px 10px;
+    border: 1px solid var(--turquoise-1);
+}
+.signup:hover{
+    background-color: var(--turquoise-2);
 }

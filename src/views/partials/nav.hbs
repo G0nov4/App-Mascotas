@@ -4,6 +4,7 @@
             <a href="/">Logo</a>
         </div>
         <div class="navitems">
+            {{#if user}}
             <ul>
                 <li>
                     <a class="enlace" href="#">Inicio</a>
@@ -15,7 +16,18 @@
                     <a class="enlace" href="#">Contacto</a>
                 </li>
             </ul>
+            {{else}}
+            <ul>
+                <li>
+                    <a class="enlace signin" href="/signin">Signin</a>
+                </li>
+                <li>
+                    <a class="enlace signup" href="/signup">Signup</a>
+                </li>
+            </ul>
+
+
+            {{/if}}
         </div>
     </div>
-
 </nav>
