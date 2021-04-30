@@ -1,12 +1,29 @@
 <div class="grid">
-    <form action="/profile" method="POST" class="form login">
+    <form action="/signup" method="POST" class="form login">
         <div class="form__field">
             <label for="login__username"><svg class="icon">
                     <use xlink:href="#icon-user"></use>
-                </svg><span class="hidden">Username</span></label>
-            <input autocomplete="username" id="login__username" type="text" name="username" class="form__input"
-                placeholder="Username" required>
+                </svg><span class="hidden">name</span></label>
+            <input autocomplete="username" id="login__username" type="text" name="name" class="form__input"
+                placeholder="Name" required>
         </div>
+         <div class="form__field">
+            <label for="login__username"><svg class="icon">
+                    <use xlink:href="#icon-user"></use>
+                </svg><span class="hidden">Lastname</span></label>
+            <input autocomplete="username" id="login__username" type="text" name="lastname" class="form__input"
+                placeholder="Lastname" required>
+        </div>
+
+       
+        <div class="form__field">
+            <label for="login__username"><svg class="icon">
+                    <use xlink:href="#icon-user"></use>
+                </svg><span class="hidden">Phone</span></label>
+            <input autocomplete="username" id="login__username" type="text" name="phone" class="form__input"
+                placeholder="Phone" required>
+        </div>
+
 
         <div class="form__field">
             <label for="login__username"><svg class="icon">
@@ -23,6 +40,14 @@
             <input id="login__password" type="password" name="password" class="form__input" placeholder="Password"
                 required>
         </div>
+    {{!--      <div class="form__field">
+            <label for="login__password"><svg class="icon">
+                    <use xlink:href="#icon-lock"></use>
+                </svg><span class="hidden">Authneticate Password</span></label>
+            <input id="login__password" type="password" name="password" class="form__input" placeholder="Repeat Password"
+                required>
+        </div>
+ --}}
 
         <div class="form__field">
             <input type="submit" value="Sign In">

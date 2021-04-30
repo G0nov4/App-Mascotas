@@ -3,6 +3,6 @@ module.exports = {
         host: 'localhost',
         user: 'root',
         password: 'root',
-        database: 'db_app_mascotas'
+        database: 'db_rescue_pets'
     }
 }
