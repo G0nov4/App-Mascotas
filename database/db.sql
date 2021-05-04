@@ -58,7 +58,7 @@ INSERT INTO pet VALUES
 (4,3, "guapo", "dog", "black", "big", "male", "blablablabla numero XD", "reported", "Direccion 4","2021-01-04", "mapa4"),
 (5,4, "astre", "cat", "black", "medium", "female", "blablablabla numero XD", "Perdido", "Direccion 5","2021-01-05", "mapa5"),
 (6,5, "guapa", "dog", "brown", "big", "female", "blablablabla numero XD", "Perdido", "Direccion 6","2021-01-06", "mapa6"),
-(7,2, "tiky", "cat", "black", "big", "male", "blablablabla numero XD", "reported", "Direccion 7","2021-01-07", "mapa7"),
+(7,3, "tiky", "cat", "black", "big", "male", "blablablabla numero XD", "reported", "Direccion 7","2021-01-07", "mapa7"),
 (8,3, "little ugly", "dog", "black and white", "small", "male", "blablablabla numero XD", "Perdido", "Direccion 8","2021-01-08", "mapa8"),
 (9,4, "manko", "cat", "tiger", "big", "female", "blablablabla numero XD", "Encontrado", "Direccion 9","2021-01-09", "mapa9"),
 (10,1, ":)", "dog", "black", "small", "male", "blablablabla numero XD", "Perdido", "Direccion 10","2021-01-10", "mapa10");
