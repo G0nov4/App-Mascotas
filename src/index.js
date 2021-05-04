@@ -67,7 +67,7 @@ app.use(require('./routes/autentication'));
 //
 app.use('/links', require('./routes/links'));
 app.use('/Register',require('./routes/register_encontradas'));
-
+app.use('/reported', require('./routes/pets_reported'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
