@@ -1,38 +1,44 @@
 const express = require("express");
-const { body } = require("express-validator");
 const router = express.Router();
 const passport = require("passport");
-
-//
-
-// Signup - inscribirse
-router.get("/signin", (req, res) => {
-  res.render("auth/signin.hbs");
-});
-
-router.post("/signin", (req, res) => {
-  const { username, password } = req.body;
-  console.log(username, password);
-});
-
+const { isLogged, isNotLogged } = require('../lib/auth')
 
 
 // Signin . registrarse
-router.get("/signup", (req, res) => {
-  res.render("auth/signup.hbs");
+router.get("/signup", isNotLogged ,(req, res) => {
+    res.render("auth/signup.hbs");
+  });
+  
+router.post("/signup", isNotLogged, passport.authenticate('local.signup', {
+    successRedirect: '/profile',
+    failureRedirect: '/signup',
+    failureFlash: true
+}));
+
+  
+// Signup - inscribirse
+router.get("/signin",isNotLogged, (req, res) => {
+  res.render("auth/signin.hbs");
+ });
+
+router.post("/signin", isNotLogged, (req, res, next)=>{
+  passport.authenticate('local.signin',{
+      successRedirect: '/profile',
+      failureRedirect: '/signin',
+      failureFlash: true
+  })(req,res, next);
 });
 
-router.post("/signup", (req, res) => {
-  const { username, email, password } = req.body;
-  console.log(username, email, password);
-  res.send("This is your profile ", username);
+
+
+//profile - perfil
+router.get('/profile',isLogged, (req, res) => {
+  res.render('./profile.hbs');
 });
 
-
-//perfil
-router.get("/profile", (req, res) => {
-  const { username, email, password } = req.body;
-  console.log(username, email, password);
+router.get('/logout', (req, res)=>{
+  req.logout();
+  res.redirect('/signin');
 });
 
 module.exports = router;

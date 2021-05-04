@@ -7,6 +7,7 @@ const session = require('express-session');
 
 const {database} = require('./keys');
 const MySQLStore = require('express-mysql-session');
+const passport = require('passport');
 
 
 
@@ -16,6 +17,7 @@ const port = process.env.PORT || 3005;
 
 // Inicio de la express (Aplicacion)
 const  app = express();
+require('./lib/passport')
 
 
 // Configuraciones
@@ -29,17 +31,34 @@ app.engine('.hbs', exphbs({
     extname: '.hbs',
     helpers: require('./lib/handlebars.js')
 }));
+
+
 app.set('view engine', '.hbs');
 
 
 // Middlewares (Aplicaciones externas)
+
+app.use(session({
+    secret: 'pet_secret',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+}));
+
+app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Global variables
-
+app.use((req, res, next) =>{
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
+    app.locals.user = req.user;
+    next();
+});
 
 // Routes - Rutas
 app.use(require('./routes'));

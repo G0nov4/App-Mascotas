@@ -4,6 +4,8 @@
     --text-color:#fcfcfc;
     --turquoise-1: #16a085;
     --turquoise-2:#1abc9c;
+    --logout-1:#d35400;
+    --logout-2:#e67e22;
 }
 *,
 *::after,
@@ -61,4 +63,13 @@ nav .logo a{
 }
 .signup:hover{
     background-color: var(--turquoise-2);
+}
+
+.logout{
+    border-radius: 5px;
+    padding: 7px 10px;
+    background-color:  var(--logout-1);
+}
+.logout:hover{
+    background-color: var(--logout-2);
 }
