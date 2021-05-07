@@ -1,0 +1,28 @@
+<div class="container p-4">
+    <div class="rw">
+
+        {{#each pets}}
+            <div class =" col-md-4">
+               <div class = "card text-center">
+                   <div class= "card-body">
+                           <h1 class ="card-title text-uppercase">
+                               {{name}}
+                           </h1>
+                           <p class ="m-2">{{specie}}</p>
+                           <p>{{color}}</p>
+                           <p>{{size}}</p>
+                           <p>{{sex}}</p>
+                           <p>{{observation}}</p>
+                           <p>{{direction}}</p>
+                           <p>{{datePet}}</p>
+                           <p>{{map}}</p>
+                   </div>
+               </div> 
+            </div>
+        {{/each}}
+
+    </div>
+
+
+
+</div>

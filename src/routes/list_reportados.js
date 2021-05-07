@@ -4,7 +4,9 @@ const router = express.Router();
 const pool = require('../database');
 
 router.get('/', async (req, res)=> {
-    res.send('Aqui irá las mascotas perdidas...')
+    const pets = await pool.query('SELECT * FROM pet WHERE status = "reported"');
+    //console.log(pets);
+    res.render('links/list_reportados', {pets});
 });
 
 
