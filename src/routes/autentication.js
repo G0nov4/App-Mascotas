@@ -53,7 +53,6 @@ router.get('/profile/Encontrado',isLogged, (req, res) => {
 
 
 router.post('/profile/reported', isLogged, async (req, res)=> {
-
   const { name_pet, specie, size, sex,  age, date, color, direction, observation} = req.body;
   const statuss = 'reported';
   const mapp = 'maaap1';
