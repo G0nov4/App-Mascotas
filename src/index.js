@@ -64,10 +64,14 @@ app.use((req, res, next) =>{
 app.use(require('./routes'));
 app.use(require('./routes/autentication'));
 
-//
+//--------agregar
 app.use('/links', require('./routes/links'));
 app.use('/Register',require('./routes/register_encontradas'));
 app.use('/reported', require('./routes/pets_reported'));
+//---------vistas
+app.use('/list_perdidos', require('./routes/list_perdidos'));
+app.use('/list_reportados', require('./routes/list_reportados'));
+app.use('/list_encontrados', require('./routes/list_encontrados'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
