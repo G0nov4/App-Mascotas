@@ -6,6 +6,7 @@ const pool = require('../database');
 
 
 router.get('/', (req, res)=> {
+
     res.render('links/reported.hbs');
 });
 
