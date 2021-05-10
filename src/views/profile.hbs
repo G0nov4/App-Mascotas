@@ -1,6 +1,174 @@
-<div>
-    <h1>hola de nuevo {{user.name}}</h1>
+<style>
+    .container{
+        margin: 0 auto;
+        width: 90%;
+    }
+    .container .title_user{
+        color: white;
+        text-align: center;
+    }
+    .container .title_user span{
+        color: tomato;
+    }
+    .nav_options{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .nav_options a{
+        background: tomato;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .nav_options a:hover{
+        background: rgb(255, 80, 49);
+    }
+    .separator{
+        color: white;
+        text-transform: uppercase;
+    }
+    hr{
+        margin: 10px;
+        color: rgba(255, 255, 255, 0.1);
+        margin: 0 0;
+        width: 90%;
+    }
+    .list_elements{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 0;
+
+    }
+    .list_elements .card{
+        
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: 5px;
+        background: rgb(255, 248, 241);
+        margin: 30px;
+    }
+    .list_elements .card .status{
+        width: 100%;
+        background-color: tomato;
+        padding: 3px;
+    }
+    .list_elements .card .status h3{
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    
+    .list_elements .card .image img{
+        width: 100%;
+    }
+    .list_elements .card .description{
+       padding: 10px;
+        
+    }
+    .list_elements .card .description p{
+        margin: 0;
+        padding-left: 10px;
+        color: rgba(20, 20, 20, 0.5);
+    }
+    .list_elements .card .description h2{
+        padding-left: 10px;
+        color: teal;
+    }
+    .list_elements .card .description h3{
+        margin: 0;
+        padding-left: 10px;
+        color: salmon;
+
+    }
+
+    .list_elements .card .options_card{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: yellow;    
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .list_elements .card .options_card .option:nth-child(1){
+        padding: 4px 10px;
+           width: 50%;
+              text-align: center;   
+        background-color: crimson;
+        cursor: pointer;
+  
+    }
+    .list_elements .card .options_card .option:nth-child(1) a{
+        width: 100%;
+        color: white;
+        text-decoration: none;
+    }
+    .list_elements .card .options_card .option:nth-child(2){
+        padding: 4px 10px;
+        width: 50%;
+        text-align: center;   
+        background-color: forestgreen;
+      
+    }
+    .list_elements .card .options_card .option:nth-child(2) a{
+        padding:  0 10px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+  
+    }
+    
+</style>
+<div class="container">
+    <div class="title_user">
+        <h1>Hola de nuevo <span>{{user.name}}</span></h1>
+    </div>
+    <div class="nav_options">
+        <a href="/profile/public">Registrar Mascota Perdida</a>
+        <a href="/profile/found">Registrar Mascota Encontrada</a>
+        <a href="/profile/reported">Hacer reporte anonimo</a>
+    </div>
+    <h2 class="separator">Lista de Animales</h2>
+    <hr>
+    <div class="list_elements">
+     {{#each pets}}
+        <div class="card">
+            <div class="status">
+                <h3>{{status}}</h3>
+            </div>
+            <div class="image">
+                <img src="{{url}}" alt="img">
+            </div>
+            <div class="description">
+                <p>{{specie}}</p>
+                <h2>{{name}}</h2>
+                <h3>{{sex}}</h3>
+            </div>
+            <div class="options_card">
+                <div class="option">
+                    <a href="">Delete</a>
+                </div>
+                <div class="option">
+                    <a href="">Edit</a>
+                </div>
+            </div>
+        </div>
+        
+        {{/each}}
+    </div>
 </div>
-<a href="">Registrar Mascota Perdida</a>
-    <a href="">Registrar Mascota Encontrada</a>
-    <a href="/reported">Hacer reporte anonimo</a>
+
+<script>
+    //codigo 
+</script>

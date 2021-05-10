@@ -1,13 +1,15 @@
 const express = require('express');
 const morgan = require('morgan');
+const multer = require('multer');
 const exphbs = require('express-handlebars')
 const path = require('path');
 const flash = require('connect-flash'); 
 const session = require('express-session');
-
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const {database} = require('./keys');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
+const Handlebars = require('handlebars')
 
 
 
@@ -52,6 +54,16 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
+const storage = multer.diskStorage({
+    destination:path.join(__dirname, 'public/uploads'),
+    filename: (req, file, cb)=>{
+        cb(null, new Date().getTime() + path.extname(file.originalname));
+    }
+});
+app.use(multer({storage}).array('image'));
+
+
+
 // Global variables
 app.use((req, res, next) =>{
     app.locals.success = req.flash('success');
@@ -66,8 +78,8 @@ app.use(require('./routes/autentication'));
 
 //--------agregar
 app.use('/links', require('./routes/links'));
-app.use('/Register',require('./routes/register_encontradas'));
-app.use('/reported', require('./routes/pets_reported'));
+app.use('/register',require('./routes/register_encontradas'));
+
 //---------vistas
 app.use('/list_perdidos', require('./routes/list_perdidos'));
 app.use('/list_reportados', require('./routes/list_reportados'));

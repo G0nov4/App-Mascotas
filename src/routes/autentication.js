@@ -3,8 +3,18 @@ const router = express.Router();
 const passport = require("passport");
 const { isLogged, isNotLogged } = require('../lib/auth')
 
-
 const pool = require('../database')
+const cloudinary = require('cloudinary');
+const fs = require('fs-extra');
+
+
+// Cloudinary
+cloudinary.config({
+    cloud_name: 'dchkhw7or',
+    api_key: 799394818649236,
+    api_secret:'YCBcHm_c70foHewvSPPzh6eOnQQ',
+  });
+
 
 // Signin . registrarse
 router.get("/signup", isNotLogged ,(req, res) => {
@@ -34,8 +44,10 @@ router.post("/signin", isNotLogged, (req, res, next)=>{
 
 
 //profile - perfil
-router.get('/profile',isLogged, (req, res) => {
-  res.render('./profile.hbs');
+router.get('/profile',isLogged, async (req, res) => {
+  const pets = await pool.query('select p.idpet, p.name,p.sex, p.specie, p.status, max(i.dir_image)url from pet p, image_pet i where p.idpet = i.idpet and p.iduser = ? group by p.idpet',[req.user.iduser])
+  console.log(pets)
+  res.render('./profile.hbs', {pets});
 });
 
 router.get('/profile/reported',isLogged, (req, res) => {
@@ -46,18 +58,17 @@ router.get('/profile/public',isLogged, (req, res) => {
   res.render('links/public.hbs');
 });
 
-router.get('/profile/Encontrado',isLogged, (req, res) => {
-  res.render('links/Encontrado.hbs');
+router.get('/profile/found',isLogged, (req, res) => {
+  res.render('links/found.hbs');
 });
 
 
 
 router.post('/profile/reported', isLogged, async (req, res)=> {
-  const { name_pet, specie, size, sex,  age, date, color, direction, observation} = req.body;
-  const statuss = 'reported';
-  const mapp = 'maaap1';
+  const { name_pet, specie, size, sex,   date, color, direction, observation} = req.body;
+  const files = req.files;
   const newPet = {
-      iduser : 1,
+      iduser : req.user.iduser,
       name:name_pet, 
       specie, 
       size, 
@@ -69,11 +80,94 @@ router.post('/profile/reported', isLogged, async (req, res)=> {
       datePet:date,
       map: 'ttt' 
   };
-  await pool.query('Insert into pet set ?', [newPet]);
- console.log(newPet) 
-  res.send('Aqui irá las mascotas perdidas...');
+  const result = await pool.query('Insert into pet set ?', [newPet]);
+  
+  const idPet = result.insertId;
+  for (const file of files){
+    const { path } = file;
+    
+    const newPath = await cloudinary.v2.uploader.upload(path).catch((err)=>{
+      console.error(err )
+    });
+    const newImage = {
+      idpet: idPet,
+      dir_image: newPath.url
+    };
+    await pool.query('Insert into image_pet set ?',[newImage]);
+    await fs.unlink(path);
+  }
+  res.redirect('/profile');
 }
-);
+);  
+
+router.post('/profile/public',isLogged, async (req, res) => {
+  const { name_pet, specie, size, sex,   date, color, direction, observation} = req.body;
+  const files = req.files;
+  const newPet = {
+      iduser : req.user.iduser,
+      name:name_pet, 
+      specie, 
+      size, 
+      sex, 
+      color, 
+      observation,
+      status: 'reported',
+      direction,
+      datePet:date,
+      map: 'ttt' 
+  };
+  const result = await pool.query('Insert into pet set ?', [newPet]);
+  
+  const idPet = result.insertId;
+  for (const file of files){
+    const { path } = file;
+    
+    const newPath = await cloudinary.v2.uploader.upload(path).catch((err)=>{
+      console.error(err )
+    });
+    const newImage = {
+      idpet: idPet,
+      dir_image: newPath.url
+    };
+    await pool.query('Insert into image_pet set ?',[newImage]);
+  }
+  res.redirect('/profile');
+});
+
+router.post('/profile/found',isLogged, async (req, res) => {
+  const { name_pet, specie, size, sex,   date, color, direction, observation} = req.body;
+  const files = req.files;
+  const newPet = {
+      iduser : req.user.iduser,
+      name:name_pet, 
+      specie, 
+      size, 
+      sex, 
+      color, 
+      observation,
+      status: 'reported',
+      direction,
+      datePet:date,
+      map: 'ttt' 
+  };
+  const result = await pool.query('Insert into pet set ?', [newPet]);
+  
+  const idPet = result.insertId;
+  for (const file of files){
+    const { path } = file;
+    
+    const newPath = await cloudinary.v2.uploader.upload(path).catch((err)=>{
+      console.error(err )
+    });
+    const newImage = {
+      idpet: idPet,
+      dir_image: newPath.url
+    };
+    await pool.query('Insert into image_pet set ?',[newImage]);
+  }
+  res.redirect('/profile');
+});
+
 
 router.get('/logout', (req, res)=>{
   req.logout();

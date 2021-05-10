@@ -1,12 +1,28 @@
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg2vWi7xAjxeEFENIcDvUPDawxlCBjJuU&callback=initMap&libraries=&v=weekly"
+    async></script>
+<style type="text/css">
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 300px;
+        /* The width is the width of the web page */
+    }
+</style>
+
 <div class="testbox container">
-    <form action="/profile/reported" method="POST">
+    <form action="/profile/reported" method="POST" enctype="multipart/form-data">
+    
         <h2>Registra tu mascota aqui</h1>
-        <br />
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis nulla recusandae animi illo, reprehenderit
-            molestias aspernatur in omnis nisi, est pariatur. Sapiente beatae debitis est quis eos saepe praesentium ab.
-        </p>
-        <br />
-        <!--h4>Datos del dueño</h2>
+            <br />
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis nulla recusandae animi illo,
+                reprehenderit
+                molestias aspernatur in omnis nisi, est pariatur. Sapiente beatae debitis est quis eos saepe praesentium
+                ab.
+            </p>
+            <br />
+            <!--h4>Datos del dueño</h2>
         <div class="item">
             <p>Nombre</p>
             <input type="text" name="name" placeholder="Ingresa tu nombre" required autofocus/>
@@ -21,9 +37,10 @@
             <input type="tel" name="phone" placeholder="Ingresa tu numero" required />
         </div>
         <br /-->
-        <h4>Datos de la mascota</h2>
+            <h4>Datos de la mascota
+        </h2>
         <br />
-          <div class="item">
+        <div class="item">
             <p>Nombre de la mascota</p>
             <input type="text" name="name_pet" placeholder="Nombre de la mascota" required />
         </div>
@@ -47,16 +64,16 @@
                 <option value="Female">Hembra</option>
             </select>
         </div>
-         <div class="item">
+        <div class="item">
             <p>Cuando se perdio</p>
             <input type="date" name="date" required />
             <i class="fas fa-calendar-alt"></i>
         </div>
-         <div class="item">
+        <div class="item">
             <p>Color</p>
             <input type="text" name="color" placeholder="color" required />
         </div>
-         <div class="item">
+        <div class="item">
             <p>Direccion</p>
             <input type="text" name="direction" placeholder="Ingresa direccion" required />
         </div>
@@ -67,51 +84,49 @@
                 <small>Observaciones del animal.</small>
             </div>
         </div>
-        <!--div class="item">
-            <p>Email</p>
-            <input type="text" name="name" />
-        </div>
-        <div class="item address">
-            <p>Address</p>
-            <div class="street">
-                <input class="street-item" type="text" name="name" placeholder="Street address" />
-                <input class="street-item" type="text" name="name" placeholder="Street addres line 2" />
-                <input type="text" name="name" placeholder="City" />
-                <input type="text" name="name" placeholder="Region" />
-                <input type="text" name="name" placeholder="Postal / zip code" />
-                <select>
-                    <option value="">Country</option>
-                    <option value="1">Russia</option>
-                    <option value="2">Germany</option>
-                    <option value="3">France</option>
-                    <option value="4">Armenia</option>
-                    <option value="5">USA</option>
-                </select>
-            </div>
-        </div>
-       
-        <div class="item location">
-          <p>Incident location</p>
-          <input type="text" name="name"/>
-        </div>
-        <div class="item complaint-details">
-          <p>Complaint details</p>
-          <div class="complaint-details-item">
-            <textarea rows="5"></textarea>
-          </div>
-        </div>
-        <div class="item desired-outcome">
-          <p>Desired outcome</p>
-          <div class="desired-outcome-item">
-            <textarea rows="5"></textarea>
-            <small>By signing you declare that all information you have entered is truthful and accurate.</small>
-          </div>
-        </div>
-        <h4>Your signature</h4>
-        <textarea rows="5"></textarea>
-        <small>By signing you declare that all information you have entered is truthful and accurate.</small-->
+        {{!-- <div id="map"></div>
+         --}}
+        <input type="file" name="image">
+        <input type="file" name="image">
+        <input type="file" name="image">
+        <input type="file" name="image">
+        <input type="file" name="image">
         <div class="btn-block">
             <button type="submit">Send</button>
         </div>
+        
     </form>
 </div>
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        const myLatlng = { lat: -16.490839, lng: -68.121492 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: myLatlng,
+        });
+        // Create the initial InfoWindow.
+        let infoWindow = new google.maps.InfoWindow({
+            content: "Busca la direccion del perrito..!",
+            position: myLatlng,
+        });
+        infoWindow.open(map);
+        // Configure the click listener.
+        map.addListener("click", (mapsMouseEvent) => {
+            // Close the current InfoWindow.
+            infoWindow.close();
+            // Create a new InfoWindow.
+            infoWindow = new google.maps.InfoWindow({
+                position: mapsMouseEvent.latLng,
+                content: ""
+            });
+
+            console.log("Latitude: ", mapsMouseEvent.latLng.lat());
+            console.log("Longitud: ", mapsMouseEvent.latLng.lng());
+
+            infoWindow.open(map);
+
+        });
+    }
+</script>
