@@ -6,7 +6,7 @@ const path = require('path');
 const flash = require('connect-flash'); 
 const session = require('express-session');
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
-const {database} = require('./keys');
+const { database } = require('./keys');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
 const Handlebars = require('handlebars')
@@ -78,12 +78,6 @@ app.use(require('./routes/autentication'));
 
 //--------agregar
 app.use('/links', require('./routes/links'));
-app.use('/register',require('./routes/register_encontradas'));
-
-//---------vistas
-app.use('/list_perdidos', require('./routes/list_perdidos'));
-app.use('/list_reportados', require('./routes/list_reportados'));
-app.use('/list_encontrados', require('./routes/list_encontrados'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));

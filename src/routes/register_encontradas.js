@@ -7,10 +7,8 @@ const pool = require('../database')
 // Cloudinary
 
 router.get('/', (req, res)=> {
-    res.render('links/register.hbs')
+    res.render('links/register/register.hbs')
 });
-
-
 
 
 module.exports = router;
