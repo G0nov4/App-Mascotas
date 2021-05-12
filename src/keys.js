@@ -2,7 +2,7 @@ module.exports = {
     database: {
         host: 'localhost',
         user: 'root',
-        password: 'root',
+        password: 'redvelvet',
         database: 'db_rescue_pets'
     }
 }

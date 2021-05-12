@@ -1,1 +1,535 @@
-<h2>Este es el main</h2>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,300&display=swap%27');
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+    @import url('http://fonts.cdnfonts.com/css/baloo-thambi');
+#slider {
+    
+  background: url("/img/labrador.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 10% 0%;
+  padding: 100px 0 280px 0;
+  position: relative;
+  overflow: hidden;
+
+  
+
+}
+
+#slider:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, #8b86a325, #322e409c);
+  opacity: 0.8;
+}
+
+#slider .block {
+  color: #E3E3E4;
+  padding-top: 0px;
+}
+#slider .block h1 {
+  
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 30px;
+  letter-spacing: 10px;
+  padding-bottom: 30px;
+}
+#slider .block p {
+  font-size: 23px;
+  line-height: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+#slider .button{
+    margin: 50px 0 0 30px;
+    background: #108896;
+    text-align: center;	
+    color: #fff;
+    border: none;
+    display: inline-block;
+    padding: 14px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border-radius: 30px;
+    box-shadow: -13px 0px 0 0px #ffcc29;
+   
+}
+#slider .button:hover {background-color: #FF6C3E;
+box-shadow: 0 0 0 0;
+   }
+#slider .button:active {
+  background-color: #FF6C3E;
+  
+}
+
+#intro {
+  padding: 50px 0;
+}
+#intro .block h2 {
+  padding-top: 40px;
+  line-height: 30px;
+  margin: 0 500px 0px 50px;
+  font-size: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 350;
+  letter-spacing: 2px;
+} 
+#intro .block p {
+  color: #7B7B7B;
+  margin:  0px 600px 0px 50px;
+  line-height: 28px;
+  letter-spacing: 2px;
+}
+
+#intro .block img {
+  padding-left: 40px;
+  margin: 105px 20px 0px 50px;
+  height: 350px;
+  width: 600px;
+  float:right; 
+  padding-top: 10px;
+}
+#intro .img1:hover {
+    transform: scale3d(1.2, 1.2, 1) rotate(7deg);
+}
+
+#intro .section-title {
+  margin-bottom: 0px;
+}
+#intro .section-title p {
+  padding-top: 20px;
+  font-size: 15px;
+
+}
+
+
+#info{
+background-color: #E1EFD0;
+}
+
+#info .container {
+        margin: 0 auto;
+        font-family: 'baloo-thambi', sans-serif;
+}
+
+#info .list_report {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+#info .lista {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+}
+#info .lista .card{
+        position: relative;
+        width: 300px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        background-color: #f8efbf;
+        border-radius: 15px 15px 15px 15px;
+        box-shadow: 2px 0px 20px #cecece;
+    }
+    
+#info .card .card-img {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 15px 15px 15px 15px;
+    
+    }
+#info .card .card-img img{
+  transition: opacity 0.7s, transform 2.5s;
+}
+
+#info .card .card-img:hover img {
+    transform: scale3d(1.2, 1.2, 1) rotate(7deg);
+}
+
+#info .card .card-img img{
+        height: 200px;
+        
+        width: 100%;
+       
+        
+}
+#info .card .card-title{
+    font-size: 13pt;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #292929;
+    margin-left: 10px;
+    text-align: center;   
+    }
+#info .card .description{
+  text-align: center;  
+        font-size: 17px;
+        line-height: 24px;
+        margin: 2px 30px 15px 30px;
+        color: #989797;
+    }
+
+
+
+#info .card .card-button button{
+        width: 70%;
+        margin: 0 0 30px 50px;
+        border: none;
+        background: #108896;
+        text-align: center;	
+        color: #fff;
+        border: none;
+        font-weight: bold;
+        display: inline-block;
+        padding: 14px 25px;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        border-radius: 30px;
+        box-shadow: -13px 0px 0 0px #ffcc29;
+    }
+#info .card .card-button button:hover {background-color: #81b214;
+box-shadow: 0 0 0 0;
+   }
+#info .card .card-button button:active {
+  background-color: #81b214;
+  
+}
+
+
+
+
+
+
+#call-to-action {
+  background: url("img/huellitas.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 70px 0px;
+  position: relative;
+  text-align: center;
+  color: #108896;
+  
+}
+#call-to-action:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #d4975ab0;
+  opacity: 0.8;
+}
+#call-to-action h2 {
+  padding-bottom: 20px;
+  line-height: 33px;
+  margin: 0;
+  font-size: 30px;
+  font-family: "baloo-thambi","sans-serif";
+}
+#call-to-action p {
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Roboto","sans-serif";
+}
+#call-to-action .btn-call-to-action {
+  padding: 15px 35px;
+  border: none;
+  background-color: #FF6C3E;
+  font-size: 15px;
+  color: #fff;
+  margin-top: 30px;
+  border-radius: 30px;
+  box-shadow: -10px 0px 0 0px #ffcc29;
+  text-decoration: none;
+}
+#call-to-action .btn-call-to-action:hover {background-color: #81b214;
+box-shadow: 0 0 0 0;
+text-decoration: none;
+   }
+#call-to-action .btn-call-to-action:active {
+  background-color: #81b214;
+  
+}
+
+
+
+
+
+
+
+footer {
+  background: #363636;;
+  
+  padding-top: 48px;
+  padding-bottom: 55px;
+}
+
+footer .container img{
+  float: left;
+  height: 100px;
+  width: 250px;
+  margin: 0 0 0 150px;
+}
+
+footer p {
+  font-size: 13px;
+  line-height: 25px;
+  color: #f19f1f;
+  
+}
+
+footer .footer-manu p{
+  margin-left: 30px 500px 0px 100px;
+  text-align: left;
+}
+
+footer a {
+  color: #f19f1f;
+
+}
+footer .footer-manu {
+  padding-bottom: 25px;
+}
+footer .footer-manu ul {
+  margin: 0px 350px 0px 0px;
+  padding: 0px;
+  text-align: center;
+}
+footer .footer-manu ul li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+footer .footer-manu ul li a {
+  display: inline-block;
+  color: #f19f1f;
+}
+footer .footer-manu ul li a:hover {
+  color: #EF5030;
+}
+#topBtn{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 22px;
+  width: 55px;
+  height: 55px;
+  background: #EF5030;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none;
+  border-radius: 30px;
+}
+
+
+</style>  
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title></title>
+  </head>
+<header>
+   <section id="slider">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="block">
+              <h1 class="animated fadeInUp">Perdiste a tu  <br><br> Mejor Amigo?</h1>
+              <p class="animated fadeInUp">Mas que un animal, es FAMILIA </br> Registrate y podras publicar sobre tu </br>mascota pérdida o reportar sobre una mascota.</p>
+            </div>
+          </div>
+        </div>
+        <button class="button" onclick="window.location.href='/list/lost'" > Mascotas Perdidas</button>
+        <button class="button" onclick="window.location.href='/list/report'" > Mascotas Reportadas</button>
+        <button class="button" onclick="window.location.href='/list/found'" > Mascotas Encontradas</button>
+      </div>
+
+    </section>
+
+
+
+
+
+   <section id="info">
+      <div class="container">
+    <div class="list_report">
+        <div class="lista">
+
+            <div class="card">
+             
+                <div class="card-img">
+                    <img src="img/sentado.jpg" alt="">
+                </div>
+               <h1 class="card-title">
+                    Registra a tu Mascota perdida
+                </h1>
+                <p class="description"> Publica aquí tu mascota perdida o busca entre las que se han reportado como perdidas.<br></p>
+                
+                <div class="card-button">
+                    <button onclick="window.location.href='/signin'"> Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="card">
+             
+                <div class="card-img">
+                    <img src="img/michis.jpg" alt="">
+                </div>
+               <h1 class="card-title">
+                  <br>
+                    Reportar Mascota perdida <br>
+                </h1>
+                <p class="description"> Publica aquí tu mascota perdida o busca entre las que se han reportado como perdidas.<br></p>
+                
+                <div class="card-button">
+                    <button onclick="window.location.href='/signin'"> Ver Detalles</button>
+                </div>
+            </div>
+
+             <div class="card">
+             
+                <div class="card-img">
+                    <img src="img/registrar.jpg" alt="">
+                </div>
+               <h1 class="card-title">
+                 <br>
+                  Registrate<br>
+                </h1>
+                <p class="description"> Publica aquí tu mascota perdida o busca entre las que se han reportado como perdidas.<br></p>
+                
+                <div class="card-button">
+                    <button onclick="window.location.href='/signin'"> Ver Detalles</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+    </section>
+
+
+
+   
+
+    <!-- Wrapper Start -->
+    <section id="intro">
+      <div class="container">
+         <div class="block">
+            <img class = "img1"src="img/dup.png" alt="Img">
+          </div>
+        <div class="row">
+         
+          <div class="col-md-7 col-sm-12">
+            <div class="block">
+              <div class="section-title">
+                <h2>MISION</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+              </div>
+              
+              <p>Lorem ipsum dolor sit amet, consectetur adiugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id </p>
+            </div>
+            <div class="block">
+              <div class="section-title">
+                <h2>VISION</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+              </div>
+              
+              <p>Lorem ipsum dolor sit amet, consectetur adiugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id </p>
+            </div>
+      </div>
+    </section>
+
+
+
+
+  
+
+
+
+ <!-- Call to action Start -->
+    <section id="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="block">
+              <h2>We design delightful digital experiences.</h2>
+              <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+              <a class="btn btn-default btn-call-to-action" href="#" >Tell Us Your Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  <!-- footer Start -->
+
+
+    <footer>
+      
+      <div class="container">
+        <div class="row">
+            <img src="img/dup3.png" alt="">
+          <div class="col-md-12">
+            <div class="footer-manu">
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+              <br>
+              <p>       Copyright &copy; Crafted by <a href="https://dcrazed.com/">Dcrazed</a>.</p>
+            </div>
+          </div>
+          <div class="textoo">
+           
+          </div>
+
+          
+
+        </div>
+      </div>
+    </footer>
+
+    <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
+
+</header>
+<script>$(document).ready(function(){
+
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 40){
+      $('#topBtn').fadeIn();
+    } else{
+      $('#topBtn').fadeOut();
+    }
+  });
+
+  $("#topBtn").click(function(){
+    $('html ,body').animate({scrollTop : 0},800);
+  });
+});
+</script>

@@ -1,12 +1,34 @@
+<style>
+ @import url(http://fonts.cdnfonts.com/css/baloo-thambi);
+ @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+
+
+nav .titulo p{
+    text-align: center;
+   
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: #fcfcfc;
+    margin-right: 400px;
+    font-family: "baloo-thambi", "sans-serif";
+}
+nav .titulo{
+    
+}
+
+</style>
 <nav>
     <div class="bar-navigation container">
         <div class="logo">
-            <a href="/">Logo</a>
+            <img src="img/dup.png"  onclick="window.location.href='/'">
+        </div>
+        <div class = "titulo">
+            <p>DAME UNA PATA</p>
         </div>
         <div class="navitems">
             {{#if user}}
             <ul>
-                <li>
+                <li>                    
                     <a class="enlace" href="/profile">Perfil</a>
                 </li>
                 <li>
@@ -23,7 +45,7 @@
             {{else}}
             <ul>
                  <li>
-                    <a class="enlace" href="#">Inicio</a>
+                    <a class="enlace" href="/">Inicio</a>
                 </li>
                 <li>
                     <a class="enlace" href="#">Nosotros</a>
