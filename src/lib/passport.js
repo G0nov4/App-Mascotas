@@ -20,7 +20,7 @@ passport.use('local.signup', new Localstrategy({
         date_created: '2000-01-01',
         type:'user'
     };
-    console.log(newUser)
+
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO user SET ?',[newUser])
     newUser.iduser = result.insertId;

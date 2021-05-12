@@ -55,7 +55,7 @@
         overflow: hidden;
         border-radius: 5px;
         background: rgb(255, 248, 241);
-        margin: 30px;
+        margin: 10px;
     }
     .list_elements .card .status{
         width: 100%;
@@ -69,7 +69,10 @@
     }
     
     .list_elements .card .image img{
+   
         width: 100%;
+        height: 200px;
+        object-fit: cover;
     }
     .list_elements .card .description{
        padding: 10px;
@@ -135,9 +138,8 @@ text-transform: uppercase;
         <h1>Hola de nuevo <span>{{user.name}}</span></h1>
     </div>
     <div class="nav_options">
-        <a href="/profile/public">Registrar Mascota Perdida</a>
-        <a href="/profile/found">Registrar Mascota Encontrada</a>
-        <a href="/profile/reported">Hacer reporte anonimo</a>
+        <a href="/profile/reported">Reportar una Mascota</a>
+        <a href="/profile/lost">Registrar Mascota Perdida</a>
     </div>
     <h2 class="separator">Lista de Animales</h2>
     <hr>
