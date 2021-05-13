@@ -1,42 +1,68 @@
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,300&display=swap%27');
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+    @import url('http://fonts.cdnfonts.com/css/baloo-thambi');
+
+
+
     .container{
         margin: 0 auto;
-        width: 90%;
+        width: 100%;
+        background: #E1EFD0;
+        height: 100%;
     }
     .container .title_user{
-        color: white;
+        margin-top: 40px;
+        color: #108896;
         text-align: center;
+        font-family: "Roboto", "sans-serif";
+        font-size: 35px;
+        font-weight: lighter;
     }
     .container .title_user span{
         color: tomato;
+        font-family: "baloo-thambi", "sans-serif";
+        font-weight: bold;
     }
     .nav_options{
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        /*justify-content: space-evenly;*/
         padding: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+
     }
     .nav_options a{
-        background: tomato;
+        background: #EF5030;
         color: white;
-        padding: 10px;
-        border-radius: 5px;
+        padding: 15px;
+        border-radius: 30px;
         text-decoration: none;
+        box-shadow: -10px 0px 0 0px #ffcc29;
+        margin: 30px 0px 0px 300px;
     }
     .nav_options a:hover{
-        background: rgb(255, 80, 49);
+        background-color: #81b214;
+        box-shadow: 0 0 0 0;
+    }
+     .nav_options a:active{
+        background-color: #81b214;
     }
     .separator{
-        color: white;
+        color: #363636;
         text-transform: uppercase;
+        font-family: "Roboto", "sans-serif";
+        font-weight: lighter;
+        font-size: 40px;
+        margin: 0 0px 0px 490px;
     }
     hr{
-        margin: 10px;
-        color: rgba(255, 255, 255, 0.1);
-        margin: 0 0;
-        width: 90%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: #61b15a;
+       
+        width: 100%;
     }
     .list_elements{
         display: flex;
@@ -45,6 +71,7 @@
         justify-content: space-around;
         align-items: center;
         padding: 20px 0;
+        background-color: #E1EFD0;
 
     }
     .list_elements .card{
