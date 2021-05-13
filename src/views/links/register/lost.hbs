@@ -1,0 +1,107 @@
+<div class="container">
+   <div class="title">
+        <h1>Registro de Animales Perdidos</h1>
+    </div>
+    
+    <form action="/profile/lost" class="form" method="POST" enctype="multipart/form-data">
+        <div class="register-pet">
+            <h2>Registra tu mascota aqui</h2>
+
+            <p>Antes de iniciar con el registro de una mascota, debes tomar en cuneta
+                que en esta plataforma Segun terminos no se permite el SPAM de las
+                publicaciones.
+            </p>
+
+            <h3>Datos de la mascota
+            </h3>
+            <br />
+            <div class="item">
+                <p>Nombre</p>
+                <input type="text" name="name_pet" placeholder="Nombre de la mascota" required />
+            </div>
+            <div class="item">
+                <p>Especie</p>
+                <input type="text" name="specie" placeholder="Ingresa la especie" required />
+            </div>
+
+            <div class="item">
+                <p>Tamaño</p>
+                <select name="size">
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div class="item">
+                <p>Sexo</p>
+                <select name="sex">
+                    <option value="Male">Macho</option>
+                    <option value="Female">Hembra</option>
+                </select>
+            </div>
+            <div class="item">
+                <p>Cuando se perdio</p>
+                <input type="date" name="date" required />
+                <i class=""></i>
+            </div>
+            <div class="item">
+                <p>Color</p>
+                <input type="text" name="color" placeholder="Color" required />
+            </div>
+            <div class="item">
+                <p>Direccion</p>
+                <input type="text" name="direction" placeholder="Ingresa direccion" required />
+            </div>
+            <div class="description">
+                <p>Observaciones</p>
+                <div class="observation">
+                    <textarea required name="observation"></textarea>
+
+                </div>
+            </div>
+            <div class="btn">
+                <button type="submit">Registrar</button>
+            </div>
+        </div>
+        
+        <div class="images">
+           
+            <h2>Sube las fotos de la mascota</h2>
+            <div class="image">
+                <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
+                    <input name="image" type="file" class="file-upload-field" value="" />
+                </div>
+            </div>
+            <div class="image">
+                <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
+                    <input name="image" type="file" class="file-upload-field" value="" />
+                </div>
+            </div>
+            <div class="image">
+                <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
+                    <input name="image" type="file" class="file-upload-field" value="" />
+                </div>
+            </div>
+            <div class="image">
+                <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
+                    <input name="image" type="file" class="file-upload-field" value="" />
+                </div>
+            </div>
+            <div class="image">
+                <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
+                    <input name="image" type="file" class="file-upload-field" value="" />
+                </div>
+            </div>
+        </div>
+      
+    
+
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $("form").on("change", ".file-upload-field", function(){ 
+    $(this).parent(".file-upload-wrapper").attr("data-text",         $(this).val().replace(/.*(\/|\\)/, '') );
+});
+</script>
