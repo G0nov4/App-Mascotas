@@ -44,16 +44,18 @@
 
     .pet {
         margin: 0 auto;
-        width: 90%;
+        width: 100%;
         display: flex;
         flex-direction: column;
+        background-color: #fcfbda ;
         font-family: var(--font-poppins);
     }
 
     .pet .name_pet {
         width: 100%;
         text-align: center;
-        padding: 20px;
+        padding: 30px;
+        margin-top: 20px;
     }
 
     .pet .name_pet h1 {
@@ -61,6 +63,7 @@
         color: var(--cl-secondary);
         text-transform: uppercase;
         font-weight: bold;
+        font-family: "baloo-thambi", sans-serif;
     }
 
     .description {
@@ -77,13 +80,13 @@
 
     .description .text p {
         color: var(--cl-secondary);
-        font-size: 1rem;
+        font-size: 1.3rem;
         margin: 5px;
     }
 
     .description .text p strong {
 
-        font-size: 1.1rem;
+        font-size: 1.5rem;
 
     }
 
@@ -102,6 +105,7 @@
         width: 100%;
         height: 220px;
         background-color: skyblue;
+        box-shadow: 3px 0px 30px #bdb9b9;
     }
 
     .description .map .map-direction {
@@ -126,6 +130,8 @@
         text-align: center;
         color: var(--cl-secondary);
         margin: 30px 0px;
+        font-family: "baloo-thambi", sans-serif;
+        font-weight: lighter;
     }
 
     .contact .cards {
@@ -160,13 +166,102 @@
     }
 
     .contact .cards .green {
-        background-color: #E1EFD0;
+        background-color: #cbf09e;
+        box-shadow: 3px 0px 30px #bdb9b9;
     }
 
     .contact .cards .yellow {
-        background-color: #C3F4FF;
+        background-color: #a7e7f5;
+        box-shadow: 3px 0px 30px #bdb9b9;
     }
+
+
+
+
+
+
+footer {
+  background: #363636;
+  
+  padding-top: 48px;
+  padding-bottom: 55px;
+}
+#footer .container .logo {
+    background: url('img/dup2.png') ;
+    background-repeat: no-repeat;
+    background-size: 130px;
+    z-index: 12;
+    padding: 20px 50px;
+    cursor: pointer;
+    float: left;
+}
+
+
+
+footer p {
+  font-size: 13px;
+  line-height: 25px;
+  color: #f19f1f;
+  margin-right:400px ;
+  
+}
+
+footer .footer-manu p{ 
+  text-align: center;
+}
+
+
+footer a {
+  color: #f19f1f;
+
+}
+footer .footer-manu {
+  padding-bottom: 25px;
+}
+footer .footer-manu ul {
+  margin: 0px 350px 0px 0px;
+  padding: 0px;
+  text-align: center;
+}
+footer .footer-manu ul li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+footer .footer-manu ul li a {
+  display: inline-block;
+  color: #f19f1f;
+}
+footer .footer-manu ul li a:hover {
+  color: #EF5030;
+}
+#topBtn{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 22px;
+  width: 55px;
+  height: 55px;
+  background: #EF5030;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none;
+  border-radius: 30px;
+}
+
+
+
 </style>
+
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title></title>
+  </head>
+
+
 
 <div class="swiper-container mySwiper">
     <div class="swiper-wrapper">
@@ -200,7 +295,7 @@
         </div>
         <div class="map">
             <div class="map-title">
-                <h2>Direccion</h2>
+                <h2>Dirección</h2>
             </div>
             <div class="map-image">
 
@@ -240,6 +335,51 @@
 
     </div>
 </div>
+
+ <footer>
+      
+      <div class="container">
+        <div class="row">
+            <label class="logo" > </label>
+           
+         
+            <div class="footer-manu">
+              <!--ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul-->
+              <br>
+              <p>       Copyright &copy; Crafted by NEIL GRANEROS.</p>
+            </div>
+          
+
+          
+
+        </div>
+      </div>
+</footer>
+
+    <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
+
+
+<script>$(document).ready(function(){
+
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 40){
+      $('#topBtn').fadeIn();
+    } else{
+      $('#topBtn').fadeOut();
+    }
+  });
+
+  $("#topBtn").click(function(){
+    $('html ,body').animate({scrollTop : 0},800);
+  });
+});
+</script>
 
 
 
