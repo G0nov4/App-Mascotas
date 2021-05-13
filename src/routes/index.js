@@ -35,5 +35,9 @@ router.get('/list/:id', async (req, res)=>{
     res.render('links/list/pet', {images, pet: pet[0]});
 });
 
+router.get('/contact', (req, res)=>{
+    res.render('contact.hbs')
+})
+
 
 module.exports = router;
