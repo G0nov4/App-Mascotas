@@ -93,7 +93,7 @@ router.post("/profile/lost", isLogged, async (req, res) => {
     sex,
     color,
     observation,
-    status: "reported",
+    status: "lost",
     direction,
     datePet: date,
     map: "ttt",
@@ -137,7 +137,7 @@ router.post("/profile/reported", isLogged, async (req, res) => {
     sex,
     color,
     observation,
-    status: "lost",
+    status: "reported",
     direction,
     datePet: date,
     map: "map1",
@@ -157,6 +157,7 @@ router.post("/profile/reported", isLogged, async (req, res) => {
       public_id: newPath.public_id
     };
     await pool.query("Insert into image_pet set ?", [newImage]);
+    await fs.unlink(path);
   }
   res.redirect("/profile");
 });
