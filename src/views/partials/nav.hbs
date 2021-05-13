@@ -18,7 +18,8 @@ nav .titulo{
 
 </style>
 <nav>
-    <div class="bar-navigation container">
+
+    <!--div class="bar-navigation container">
         <div class="logo">
             <img src="img/dup.png"  onclick="window.location.href='/'">
         </div>
@@ -59,10 +60,49 @@ nav .titulo{
                 <li>
                     <a class="enlace signup" href="/signup">Signup</a>
                 </li>
-            </ul>
+            </ul-->
+
+  <input type="checkbox" id="check" />
+  <label for="check" class="checkbtn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <label class="logo">Logo</label>
+  {{#if user}}
+    <ul>
+      <li>
+        <a class="" href="/profile">Perfil</a>
+      </li>
+      <li>
+        <a class="" href="#">Nosotros</a>
+      </li>
+      <li>
+        <a class="" href="#">Contacto</a>
+      </li>
 
 
-            {{/if}}
-        </div>
-    </div>
+      <li>
+        <a class="logout" href="/logout">Logout</a>
+      </li>
+    </ul>
+  {{else}}
+    <ul>
+      <li>
+        <a class="" href="/">Inicio</a>
+      </li>
+      <li>
+        <a class="" href="#">Nosotros</a>
+      </li>
+      <li>
+        <a class="" href="#">Contacto</a>
+      </li>
+      <li>
+        <a class="signin" href="/signin">Signin</a>
+      </li>
+      <li>
+        <a class="signup" href="/signup">Signup</a>
+      </li>
+    </ul>
+
+  {{/if}}
+
 </nav>

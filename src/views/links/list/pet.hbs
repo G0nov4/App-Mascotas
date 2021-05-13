@@ -1,4 +1,3 @@
-
 <style>
     .swiper-container {
         width: 100%;
@@ -6,7 +5,8 @@
     }
 
     .swiper-slide {
-       
+        width: 100%;
+        height: 80vh;
 
         /* Center slide text vertically */
         display: -webkit-box;
@@ -41,13 +41,138 @@
     .swiper-slide:nth-child(3n) {
         width: 40%;
     }
+
+    .pet {
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-poppins);
+    }
+
+    .pet .name_pet {
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .pet .name_pet h1 {
+        font-size: 3.45em;
+        color: var(--cl-secondary);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .description {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .description .text {
+        width: 50%;
+    }
+
+    .description .text p {
+        color: var(--cl-secondary);
+        font-size: 1rem;
+        margin: 5px;
+    }
+
+    .description .text p strong {
+
+        font-size: 1.1rem;
+
+    }
+
+    .description .map {
+        width: 40%;
+    }
+
+    .description .map .map-title {
+        width: 100%;
+        text-align: center;
+        color: var(--cl-secondary);
+        font-size: 1.2rem;
+    }
+
+    .description .map .map-image {
+        width: 100%;
+        height: 220px;
+        background-color: skyblue;
+    }
+
+    .description .map .map-direction {
+        width: 100%;
+    }
+
+    .description .map .map-direction p {
+        margin: 10px;
+        color: var(--cl-secondary);
+        text-align: center;
+    }
+
+    .contact {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .contact .title {
+        width: 100%;
+        text-align: center;
+        color: var(--cl-secondary);
+        margin: 30px 0px;
+    }
+
+    .contact .cards {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .contact .cards .card {
+        padding: 20px;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+    }
+
+    .contact .cards .card .icon{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+    }
+
+    .contact .cards .card .title{
+        margin: 10px 0;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .contact .cards .card .content{
+        text-align: center;
+    }
+
+    .contact .cards .green {
+        background-color: #E1EFD0;
+    }
+
+    .contact .cards .yellow {
+        background-color: #C3F4FF;
+    }
 </style>
 
 <div class="swiper-container mySwiper">
     <div class="swiper-wrapper">
-        {{#each pet}}
-        <div  class="swiper-slide">
-            <img  src="{{dir_image}}" alt="{{dir_image}}">
+        {{#each images}}
+        <div class="swiper-slide">
+            <img loading="lazy" src="{{dir_image}}" alt="{{dir_image}}">
         </div>
 
         {{/each}}
@@ -56,27 +181,85 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
+<div class="container pet">
+    <div class="name_pet">
+        <h1>{{pet.pet_name}}</h1>
+    </div>
+
+    <div class="description">
+        <div class="text">
+            <p><strong>Especie: </strong>{{pet.specie}}</p>
+            <p><strong>Tamaño: </strong>{{pet.size}}</p>
+            <p><strong>Sexo: </strong>{{pet.sex}}</p>
+            <p><strong>Fecha de Perdida: </strong>{{pet.datepet}}</p>
+            <p><strong>Observationes:</strong></p>
+            <p>
+                {{pet.observation}}
+            </p>
+
+        </div>
+        <div class="map">
+            <div class="map-title">
+                <h2>Direccion</h2>
+            </div>
+            <div class="map-image">
+
+            </div>
+            <div class="map-direction">
+                <p>
+                    <strong>Perdido en</strong> Tu corazon bb :v {{pet.map}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="title">
+            <h2>Datos de Contacto</h2>
+        </div>
+        <div class="cards">
+            <div class="card green">
+                <div class="icon">
+                    <img src="/svg/user.svg" alt="">
+                </div>
+                <div class="title">
+                    <h3>NOMBRE</h3>
+                </div>
+                <div class="content">
+                    {{pet.name}}
+                </div>
+            </div>
+            <div class="card yellow">
+                <div class="icon">
+                    <img src="/svg/email.svg" alt="">
+                </div>
+                <div class="title">
+                    <h3>Email</h3>
+                </div>
+                <div class="content">
+                    {{pet.email}}
+                </div>
+            </div>
+        </div>
 
 
+    </div>
 </div>
 
 
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 20,
-        slidesPerView: 1,
+        slidesPerView: "auto",
+        spaceBetween: 5,
+
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
         pagination: {
             el: ".swiper-pagination",
-        },
-        history: {
-            key: "slide",
+            clickable: true,
         },
     });
 </script>
-
