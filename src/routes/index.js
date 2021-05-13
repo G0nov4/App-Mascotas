@@ -30,5 +30,9 @@ router.get('/list/:id', async (req, res)=>{
     res.render('links/list/pet', {pet});
 });
 
+router.get('/contact', (req, res)=>{
+    res.render('contact.hbs')
+})
+
 
 module.exports = router;
