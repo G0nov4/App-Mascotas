@@ -157,6 +157,7 @@ router.post("/profile/reported", isLogged, async (req, res) => {
       public_id: newPath.public_id
     };
     await pool.query("Insert into image_pet set ?", [newImage]);
+    await fs.unlink(path);
   }
   res.redirect("/profile");
 });
