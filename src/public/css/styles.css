@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,300&display=swap");
 
 :root {
-  --background: #f0f0f0;
+  --background: #ffffff;
   --nav_color: #FF9820;
   --text-color: #fcfcfc;
   --turquoise-1: #16a085;
@@ -48,6 +48,9 @@ body {
 
 nav {
   background: var(--nav_color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
   height: 60px;
   width: 100%;
 }
@@ -71,7 +74,7 @@ nav ul li {
   margin: 0 5px;
 }
 nav ul li:hover {
-  border-bottom: 2px inset var(--logout-2);
+  border-bottom:3px inset var(--logout-2);
 }
 
 
@@ -154,10 +157,10 @@ nav ul li a {
 .signup {
   border-radius: 5px;
   padding: 7px 10px;
-  border: 1px solid var(--turquoise-1);
+  border: 1px solid var(--warnning);
 }
 .signup:hover {
-  background-color: var(--turquoise-2);
+  background-color: var(--warnning);
 }
 
 .logout {

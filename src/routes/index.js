@@ -11,17 +11,25 @@ router.get('/', (req, res)=>{
 
 router.get('/list/report',async (req, res)=>{
     const pets = await pool.query(consultQuery("'reported'"));
-    
+     // adjuntar fecha
+
+
+    //
     res.render('links/list/reported', {pets});
 });
 
 router.get('/list/lost',async (req, res)=>{
     const pets = await pool.query(consultQuery("'lost'"));
+    // adjuntar fecha
+
+
+    //
     res.render('links/list/lost', {pets});
 });
 
 router.get('/list/found',async (req, res)=>{
     const pets = await pool.query(consultQuery("'found'"));
+    
     res.render('links/list/found', {pets});
 });
 

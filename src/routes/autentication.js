@@ -2,10 +2,13 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const { isLogged, isNotLogged } = require("../lib/auth");
-
 const pool = require("../database");
 const cloudinary = require("cloudinary");
 const fs = require("fs-extra");
+const tinify = require('tinify');
+
+// Tinify
+tinify.key = "wXlgtF85jgcBKBjvskhHrg6yK7qtJM2F";
 
 // Cloudinary
 cloudinary.config({
@@ -71,7 +74,17 @@ router.get('/profile/delete/:id', isLogged, async (req, res)=>{
     res.send('<h2>Error al eliminar imagen/h2>')
   });
   res.redirect('/profile');
+});
+ 
+router.get('/profile/edit/:id', isLogged, async (req, res)=>{
+  const { id } = req.params;
+  const deletePet =await  pool.query('SELECT * FROM image_pet WHERE idpet = ?',[id]);
+  const result = await cloudinary.v2.uploader.destroy(deletePet[0].public_id).catch(err =>{
+    res.send('<h2>Error al eliminar imagen/h2>')
+  });
+  res.redirect('/profile');
 })
+
 
 router.post("/profile/lost", isLogged, async (req, res) => {
   const {
@@ -95,7 +108,7 @@ router.post("/profile/lost", isLogged, async (req, res) => {
     observation,
     status: "lost",
     direction,
-    datePet: date,
+    datePet: (new Date(date)).toLocaleDateString(),
     map: "ttt",
   };
   const result = await pool.query("Insert into pet set ?", [newPet]);
@@ -103,10 +116,20 @@ router.post("/profile/lost", isLogged, async (req, res) => {
   const idPet = result.insertId;
   for (const file of files) {
     const { path } = file;
+    console.log(path);
+    console.log("Antes: ",file)
+    // Compress file 
+    const source = await tinify.fromFile(file.path);
+    const copyrighted = await source.preserve("copyright", "creation");
+    console.log("New path for cloudinary")
+    const newPathImage = await copyrighted._url.then(data => data)
 
-    const newPath = await cloudinary.v2.uploader.upload(path).catch((err) => {
+    console.log("Despues:", newPathImage);
+    const newPath = await cloudinary.v2.uploader.upload(newPathImage).catch((err) => {
       console.error(err);
-    });
+    }).then(
+      console.log("Se subio la imagen :v")
+    );
     const newImage = {
       idpet: idPet,
       dir_image: newPath.url,
@@ -139,7 +162,7 @@ router.post("/profile/reported", isLogged, async (req, res) => {
     observation,
     status: "reported",
     direction,
-    datePet: date,
+    datePet: (new Date(date)).toLocaleDateString(),
     map: "map1",
   };
   const result = await pool.query("Insert into pet set ?", [newPet]);
@@ -147,8 +170,17 @@ router.post("/profile/reported", isLogged, async (req, res) => {
   const idPet = result.insertId;
   for (const file of files) {
     const { path } = file;
+  
+    console.log("Antes: ",file)
+    // Compress file 
+    const source = await tinify.fromFile(file.path);
+    const copyrighted = await source.preserve("copyright", "creation");
+    console.log("New path for cloudinary")
+    const newPathImage = await copyrighted._url.then(data => data)
 
-    const newPath = await cloudinary.v2.uploader.upload(path).catch((err) => {
+    console.log("Despues:", newPathImage);
+
+    const newPath = await cloudinary.v2.uploader.upload(newPathImage).catch((err) => {
       console.error(err);
     });
     const newImage = {
@@ -156,7 +188,10 @@ router.post("/profile/reported", isLogged, async (req, res) => {
       dir_image: newPath.url,
       public_id: newPath.public_id
     };
+    
     await pool.query("Insert into image_pet set ?", [newImage]);
+
+    // elimina la imagen temporal
     await fs.unlink(path);
   }
   res.redirect("/profile");
