@@ -2,6 +2,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,300&display=swap%27');
     @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
     @import url('http://fonts.cdnfonts.com/css/baloo-thambi');
+
+
+
+
 #slider {
     
   background: url("/img/labrador.jpg");
@@ -11,8 +15,6 @@
   padding: 100px 0 280px 0;
   position: relative;
   overflow: hidden;
-
-  
 
 }
 
@@ -38,10 +40,12 @@
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 60px;
-  line-height: 30px;
+  line-height: 70px;
   letter-spacing: 10px;
   padding-bottom: 30px;
+ 
 }
+
 #slider .block p {
   font-size: 23px;
   line-height: 40px;
@@ -49,6 +53,8 @@
   font-weight: 300;
   letter-spacing: 2px;
 }
+
+
 #slider .button{
     margin: 50px 0 0 30px;
     background: #108896;
@@ -70,6 +76,64 @@ box-shadow: 0 0 0 0;
   background-color: #FF6C3E;
   
 }
+
+
+
+@media (max-width:570px) {
+  #slider {
+    
+  background: url("/img/labrador.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 70% ;
+  padding: 100px 0 40px 0;
+  
+  }
+
+  #slider:before {
+  
+  background: #f8efbf;
+  opacity: 0.8;
+  margin-top: 67%;
+  height: 70%;
+  }
+
+  
+  #slider .block h1 {
+  margin-top: 40px;
+  font-size: 31px;
+  line-height: 35px;
+  }
+  #slider .block p {
+  color: #363636;
+  margin-top: 25px;
+  font-weight: 200;
+  font-family:"baloo-thambi", sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 1px;
+  text-align: center;
+  }
+
+
+  #slider .button{
+   
+    font-size: 14px;
+    border-radius: 30px;
+    box-shadow: -13px 0px 0 0px #ffcc29;
+    margin-left: 80px;
+    margin-top: 30px;
+  }
+  #slider .button:active {
+  background-color: #FF6C3E;
+  
+  }
+
+}
+
+
+
+
 
 #intro {
   padding: 50px 0;
@@ -95,6 +159,7 @@ box-shadow: 0 0 0 0;
   margin: 1px 20px 0px 50px;
   height: 350px;
   width: 600px;
+  clear:left;
   float:right; 
   padding-top: 10px;
   transition: opacity 0.7s, transform 2.5s;
@@ -111,6 +176,40 @@ box-shadow: 0 0 0 0;
   font-size: 15px;
 
 }
+
+
+
+@media (max-width:570px) {
+  #intro {
+  padding: 10px 0;
+  }
+  #intro .block h2 {
+  
+  margin-left: 20px;
+  margin-top: 0;
+  font-size: 23px;
+  } 
+  #intro .block p {
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 13px;
+  line-height: 28px;
+  letter-spacing: 2px;
+  }
+
+#intro .block img {
+  padding-left: 240px;
+  height: 200px;
+  width: 530px;
+  margin-bottom: 30px;
+  
+  }
+
+
+
+}
+
+
 
 
 #info{
@@ -203,7 +302,7 @@ background-color: #E1EFD0;
         text-transform: uppercase;
         border-radius: 30px;
         box-shadow: -13px 0px 0 0px #ffcc29;
-    }
+}
 #info .card .card-button button:hover {background-color: #81b214;
 box-shadow: 0 0 0 0;
    }
@@ -212,6 +311,21 @@ box-shadow: 0 0 0 0;
   
 }
 
+
+
+@media (max-width:570px) {
+  #info .lista .card{width: 270px;}
+  #info .card .card-title{font-size: 11pt; }
+  #info .card .description{font-size: 13px;}
+  #info .card .card-button button{
+        width: 50%;
+        font-size: 13px;
+        margin-left: 75px;
+      
+  }
+
+
+}
 
 
 
@@ -271,8 +385,15 @@ text-decoration: none;
   
 }
 
-
-
+@media (max-width:570px) {
+  #call-to-action {padding: 50px 0px;}
+  #call-to-action h2 {font-size: 20px;margin-bottom: 20px;}
+  #call-to-action .btn-call-to-action {
+  padding: 15px 25px;
+  font-size: 11px;
+  margin-top: 100px;
+  }
+}
 
 
 
@@ -343,6 +464,45 @@ footer .footer-manu ul li a:hover {
 }
 
 
+@media (max-width:570px) {
+
+  footer {
+  padding-top: 15px;
+  padding-bottom: 2px;
+  }
+
+  footer .container img{
+  float: left;
+  clear: right;
+  height: 110px;
+  width: 300px;
+  margin-left: 35px;
+  }
+  footer .footer-manu {
+  padding-top: 50px;
+  padding-right: 2px; 
+   }
+  footer .footer-manu p{
+  padding-top: 50px; 
+  margin-right: 20px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  text-align: right;
+  }
+
+  #topBtn{
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+ 
+  }
+  
+}
+
+
+
+
+
 </style>  
 <head>
     <meta charset="utf-8">
@@ -356,12 +516,12 @@ footer .footer-manu ul li a:hover {
         <div class="row">
           <div class="col-md-2">
             <div class="block">
-              <h1 class="animated fadeInUp">Perdiste a tu  <br><br> Mejor Amigo?</h1>
+              <h1 class="animated fadeInUp">Perdiste a tu  <br> Mejor Amigo?</h1>
               <p class="animated fadeInUp">Mas que un animal, es FAMILIA </br> Registrate y podras publicar sobre tu </br>mascota pérdida o reportar sobre una mascota.</p>
             </div>
           </div>
         </div>
-        <button class="button" onclick="window.location.href='/list/lost'" > Mascotas Perdidas</button>
+        <button class="button" onclick="window.location.href='/list/lost'" > Mascotas   Perdidas  </button>
         <button class="button" onclick="window.location.href='/list/report'" > Mascotas Reportadas</button>
         <button class="button" onclick="window.location.href='/list/found'" > Mascotas Encontradas</button>
       </div>
@@ -388,7 +548,7 @@ footer .footer-manu ul li a:hover {
                 <p class="description"> Publica aquí tu mascota perdida o busca entre las que se han reportado como perdidas.<br></p>
                 
                 <div class="card-button">
-                    <button onclick="window.location.href='/signin'"> Ver Detalles</button>
+                    <button onclick="window.location.href='/profile'"> Me perdí</button>
                 </div>
             </div>
 
@@ -404,7 +564,7 @@ footer .footer-manu ul li a:hover {
                 <p class="description"> Publica aquí tu mascota perdida o busca entre las que se han reportado como perdidas.<br></p>
                 
                 <div class="card-button">
-                    <button onclick="window.location.href='/signin'"> Ver Detalles</button>
+                    <button onclick="window.location.href='/profile'"> Reportar</button>
                 </div>
             </div>
 
@@ -420,7 +580,7 @@ footer .footer-manu ul li a:hover {
                 <p class="description"> Publica aquí tu mascota perdida o busca entre las que se han reportado como perdidas.<br></p>
                 
                 <div class="card-button">
-                    <button onclick="window.location.href='/signin'"> Ver Detalles</button>
+                    <button onclick="window.location.href='/signin'"> Resgistrarse</button>
                 </div>
             </div>
 
