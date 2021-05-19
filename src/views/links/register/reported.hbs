@@ -1,4 +1,45 @@
+<head>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        width: 400px;
+        height: 400px;
+      }
 
+    </style>
+    <script>
+      function initMap() {
+        const myLatlng = { lat: -25.363, lng: 131.044 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 8,
+          center: myLatlng,
+        });
+        // Create the initial InfoWindow.
+        let infoWindow = new google.maps.InfoWindow({
+          content: "Click the map to get Lat/Lng!",
+          position: myLatlng,
+        });
+        infoWindow.open(map);
+        // Configure the click listener.
+        map.addListener("click", (mapsMouseEvent) => {
+          // Close the current InfoWindow.
+          infoWindow.close();
+          // Create a new InfoWindow.
+          infoWindow = new google.maps.InfoWindow({
+            position: mapsMouseEvent.latLng,
+          });
+          infoWindow.setContent(
+            JSON.stringify("Aqui esta tu mascota")
+          );
+          infoWindow.open(map);
+          console.log(map.center.lat(), map.center.lng())
+        });
+      }
+    </script>
+  </head>
 
 <div class="container">
     <div class="title">
@@ -78,9 +119,9 @@
         <button type="submit">Registrar</button>
       </div>
     </div>
+  <div id="map" name=""></div>
 
     <div class="images">
-
       <h2>Sube las fotos de la mascota</h2>
       <div class="image">
         <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
@@ -120,3 +161,9 @@
     $(this).parent(".file-upload-wrapper").attr("data-text",         $(this).val().replace(/.*(\/|\\)/, '') );
 });
 </script>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg2vWi7xAjxeEFENIcDvUPDawxlCBjJuU&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>

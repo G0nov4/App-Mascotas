@@ -78,13 +78,25 @@ router.get('/profile/delete/:id', isLogged, async (req, res)=>{
  
 router.get('/profile/edit/:id', isLogged, async (req, res)=>{
   const { id } = req.params;
-  const deletePet =await  pool.query('SELECT * FROM image_pet WHERE idpet = ?',[id]);
+  const images = await pool.query('SELECT dir_image FROM image_pet WHERE idpet = ?',[id]);
+  const pet = await pool.query('SELECT * FROM  pet WHERE idpet = ?',[id]);
+  console.log(pet[0])
+
+  res.render('links/edit/edit.hbs', {images, pet: pet[0]});
+});
+
+router.delete('/profile/edit/:id', isLogged, async (req, res)=>{
+ res.send("holi")
+})
+
+router.post('/profile/edit/:id', isLogged, async (req, res)=>{
+  const { id } = req.params;
+  const Pet = await  pool.query('SELECT * FROM image_pet WHERE idpet = ?',[id]);
   const result = await cloudinary.v2.uploader.destroy(deletePet[0].public_id).catch(err =>{
     res.send('<h2>Error al eliminar imagen/h2>')
   });
   res.redirect('/profile');
 })
-
 
 router.post("/profile/lost", isLogged, async (req, res) => {
   const {

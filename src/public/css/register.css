@@ -1,4 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+*{
+    font-family: var(--font-poppins);
+}
 .title h1{
     width: 100%;
     text-align: center;
@@ -132,6 +135,7 @@
     position: relative;
     width: 80%;
     height: 60px;
+    
 }
 
 .file-upload-wrapper:after {
@@ -140,7 +144,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: #fff;
+    background: #d7f7e7;
     padding: 10px 15px;
     display: block;
     width: calc(100% - 40px);
@@ -148,7 +152,7 @@
     z-index: 20;
     height: 60px;
     line-height: 40px;
-    color: #999;
+    color: #000;
     border-radius: 5px 10px 10px 5px;
     font-weight: 300;
 }
@@ -192,4 +196,26 @@
         block;
     cursor: pointer;
     width: 100%;
+}
+
+
+
+@media (max-width:768px) {
+    .file-upload-wrapper:after,
+    .file-upload-wrapper:before {
+        font-size: 13px;
+    }
+    
+    .register{
+        flex-direction: column;
+    }
+    .register .form{
+        grid-template-columns: 1fr;
+    }
+    .register-pet{
+        grid-row: 2;
+    }
+    .btn button{
+        width: 100%;
+    }
 }

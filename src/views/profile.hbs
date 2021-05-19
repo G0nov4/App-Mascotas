@@ -158,6 +158,60 @@
 text-transform: uppercase;
         
     }
+    @media (max-width: 1024px){
+        .title_user h1{
+            
+            font-size: 4rem;
+        }
+        hr{
+            margin: 10px 0;
+        }
+    
+        .nav_options{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0;
+            padding: 32px;
+
+        }
+        .nav_options a{
+            margin: 0;
+            padding: 15px 30px;
+        }
+        .separator{
+            margin: 0 0 0 20px;
+        }
+    }
+    @media (max-width: 435px){
+         .nav_options{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0;
+            padding: 10px;
+
+        }
+        
+        .title_user h1{
+            
+            font-size:2rem;
+        }
+        hr{
+            margin: 10px 0;
+        }
+         .nav_options a{
+             text-align: center;
+             width: 90%;
+            margin: 10px 0;
+            padding: 10px 20px;
+        }
+        .separator{
+            font-size: 1.5rem;
+        }
+    }
     
 </style>
 <div class="container">

@@ -1,0 +1,149 @@
+<style>
+    .list-images{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+     
+    }
+    .edit-card{
+        position: relative;
+        width: 250px;   
+       
+     
+        margin: 10px 10px;
+    }
+    .edit-card img{
+        width: 100%;
+         border-radius: 20px;
+        object-fit: cover;
+        height: 100%;
+    }
+    .edit_buttons{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+      margin: 0 auto;
+      bottom: -10px;
+  
+    }
+
+    .edit_buttons button{
+     
+        border: none;
+        background-color: var(--danger);
+        color: white;
+        padding: 6px;
+        border-radius: 5px;
+            font-size: 1rem;
+      font-weight: bold;
+      font-family: var(--font-poppins);
+      cursor: pointer;
+       
+    }
+    .delete{
+        fill: white;
+        width: 10px;
+        height: 10px;
+    }
+  
+</style>
+<div class="container register">
+   <div class="title">
+        <h1>Editor de mascota</h1>
+    </div>
+    
+    <form action="/profile/lost" class="form" method="POST" enctype="multipart/form-data">
+        <div class="register-pet">
+            <h2>Mascota</h2>
+            <br />
+            <div class="item">
+                <p>Nombre</p>
+                <input type="text" name="name_pet"  value="{{pet.name}}" required />
+            </div>
+            <div class="item">
+                <p>Especie</p>
+                <input type="text" name="specie"  value="{{pet.specie}}" required />
+            </div>
+
+            <div class="item">
+                <p>Tamaño</p>
+                <select name="size">
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div class="item">
+                <p>Sexo</p>
+                <select name="sex">
+                    <option value="Male">Macho</option>
+                    <option value="Female">Hembra</option>y
+                </select>
+            </div>
+            <div class="item">
+                <p>Cuando se perdio</p>
+                <input type="date" name="date"  required />
+                <i class=""></i>
+            </div>
+            <div class="item">
+                <p>Color</p>
+                <input type="text" name="color" value="{{pet.color}}" required />
+            </div>
+            <div class="item">
+                <p>Direccion</p>
+                <input type="text" name="direction" value="{{pet.direction}}" required />
+            </div>
+            <div class="description">
+                <p>Observaciones</p>
+                <div class="observation">
+                    <textarea required name="observation">{{pet.observation}}</textarea>
+
+                </div>
+            </div>
+            <div class="btn">
+                <button type="submit">Editar</button>
+            </div>
+        </div>
+        
+        <aside class="images">
+           
+            <h2>Elimina o sube fotos de la mascota</h2>
+            <div class="list-images">
+                <form action="/profile/edit/{{idpet}}" method="delete">
+                         {{#each images}}
+                <div class="edit-card">
+                    <img class="edit-card-img" src="{{dir_image}}" alt="{{dir_image}}">
+                    <div class="edit_buttons">
+                        <button >DELETE </button>
+                    </div>
+                    </div>
+            {{/each}}
+            
+                </div>
+            <div class="images">
+                 <div class="image">
+        <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
+          <input name="image" type="file" class="file-upload-field" value="" />
+        </div>
+      </div>
+            </div>
+            
+            </div>
+         
+            
+        </aside>
+    </form>
+</div>
+
+
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+></script>
+<script>
+  $("form").on("change", ".file-upload-field", function(){ 
+    $(this).parent(".file-upload-wrapper").attr("data-text",         $(this).val().replace(/.*(\/|\\)/, '') );
+});
+</script>

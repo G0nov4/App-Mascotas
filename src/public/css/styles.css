@@ -74,7 +74,7 @@ nav ul li {
   margin: 0 5px;
 }
 nav ul li:hover {
-  border-bottom:3px inset var(--logout-2);
+  border-bottom:2px solid var(--logout-2);
 }
 
 
@@ -147,7 +147,7 @@ nav ul li a {
   a:hover,
   a.active {
     background: none;
-    color: var(--turquoise-2);
+    color: white;
   }
   #check:checked ~ ul {
     left: 0;

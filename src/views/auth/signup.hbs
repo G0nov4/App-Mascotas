@@ -126,7 +126,47 @@
         color: white;
         font-weight: bold;
     }
+    @media (max-width:750px){
+        section{
+            margin-top: 0;
+          align-items: center;
+        }
+        .panel-signup .background{
+            position: absolute;
+            width: 100%;
+             filter: blur(6px);
+        }
+        .panel-signup .dates-form{
+            border-radius: 30px;
+            margin: 0 auto;
+            height: 80vh;
+            background-color: rgba(255, 255, 255, 0.837);
+           
+            z-index: 10;
+            width: 90%;
+        }
+        .item input[type="password"],
+    .item input[type="text"]{
+        padding: 10px 10px 10px 35px;
+        background-color: rgba(255, 255, 255, 0.837);
+        width: 100%;
+    border-radius: 10px;
+  
+
+    }
+    .submit >input[type="submit"]{
+        margin-top: 20px;
+        padding: 10px 60px 10px 60px;
+        border-radius: 15px;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+    }
+    .icon{
+     
+        left: 30px;
     
+    }
 </style>
 
 <section class="panel-signup">
