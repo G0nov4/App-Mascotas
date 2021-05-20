@@ -59,7 +59,7 @@
     }
 
     .pet .name_pet h1 {
-        font-size: 3.45em;
+        font-size: 4.45em;
         color: var(--cl-secondary);
         text-transform: uppercase;
         font-weight: bold;
@@ -80,13 +80,13 @@
 
     .description .text p {
         color: var(--cl-secondary);
-        font-size: 1.3rem;
-        margin: 5px;
+        font-size: 1.6rem;
+        margin: 10px;
     }
 
     .description .text p strong {
 
-        font-size: 1.5rem;
+        font-size: 1.7rem;
 
     }
 
@@ -174,7 +174,16 @@
         background-color: #a7e7f5;
         box-shadow: 3px 0px 30px #bdb9b9;
     }
-
+     .contact .cards .blue {
+        background-color: #2598b3;
+        box-shadow: 3px 0px 30px #bdb9b9;
+    }
+    .contact .cards .card .icon1{
+        width: 10%;
+        height: 40px;
+        position: relative;
+        margin-left: 43%;
+    }
 
 
 
@@ -392,7 +401,19 @@ footer p{
                 </div>
                 <div class="content">
                     {{pet.email}}
+                </div>  
+            </div>
+        
+        <div class="card blue">
+                <div class="icon1">
+                    <img src="/svg/020-telephone-3.svg" alt="">
                 </div>
+                <div class="title">
+                    <h3>Teléfono</h3>
+                </div>
+                <div class="content">
+                    {{pet.phone}}
+                </div>  
             </div>
         </div>
 
