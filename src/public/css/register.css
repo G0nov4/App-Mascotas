@@ -10,6 +10,7 @@
     padding-bottom: 50px;
 
 }
+
 .title h1{
     width: 100%;
     text-align: center;
@@ -254,7 +255,6 @@
     z-index: 20;
     height: 60px;
     line-height: 40px;
-
     color: #000;
     border-radius: 5px 10px 10px 5px;
     font-weight: 300;
@@ -299,9 +299,32 @@
     cursor: pointer;
     width: 100%;
 }
-
-
-
+.form-group label {
+    margin-left:25%;
+    text-align: center;
+    align-items: center;
+    
+ }
+ .form-group #longitud{
+     margin-left: 1px;
+ } 
+ .form-group input {
+   width: 35%;
+   margin-left: 15px;
+   margin-bottom: 3px;
+   text-align: center;
+   padding: 3px 0px 3px 0px;
+   font-weight: lighter;
+   border-radius: 6px;
+   border: 1px solid rgb(51, 123, 160);
+ }
+ #map{
+    width: 500px; 
+    height: 300px;
+    align-items: center;
+    margin: 20px 0 0 25px;
+    border-radius: 10px;
+ }
 @media (max-width:768px) {
     .file-upload-wrapper:after,
     .file-upload-wrapper:before {

@@ -93,7 +93,8 @@ router.post("/lost", isLogged, async (req, res) => {
     status: "lost",
     direction,
     datePet: new Date(date).toLocaleDateString(),
-    map: "ttt",
+    latitud,
+    longitud
   };
   const result = await pool.query("Insert into pet set ?", [newPet]);
 
@@ -138,7 +139,8 @@ router.post("/reported", isLogged, async (req, res) => {
     status: "reported",
     direction,
     datePet: new Date(date).toLocaleDateString(),
-    map: "map1",
+    latitud,
+    longitud
   };
   const result = await pool.query("Insert into pet set ?", [newPet]);
 
