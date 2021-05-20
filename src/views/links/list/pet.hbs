@@ -249,8 +249,71 @@ footer .footer-manu ul li a:hover {
   border-radius: 30px;
 }
 
+footer{
+    padding: 0;
+}
+.container{
+    background-color: transparent;
+    padding: 0;
+}
+footer .container img{
+  margin: 0;
+  padding: 0;
+}
+footer .row{
+   
+  display: flex;
+  flex-direction: column;
+}
+footer br{
+  display: none;
+}
+footer p{
+  width: 100%;
+}
+    @media (max-width:768px){
+        .pet .name_pet h1{
+            margin: 10px;
+            font-size: 2rem;
+        }
+        .swiper-slide {
+        width: 100%;
+        height: 60vh;
+
+       
+    }
 
 
+.pet .name_pet{
+    padding: 0px;
+    margin-top: 0;
+}
+.description{
+    flex-direction: column;
+}
+.description .text,
+.description .map{
+    padding: 10px;
+    width: 100%;
+}
+.description .text p{
+    font-size: .8rem;
+}
+.description .text p strong{
+    font-size: .8rem;
+}
+.contact .cards{
+  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact .cards .card{
+    margin: 20px 10px;
+    width: 80%;
+}
+
+    }
 </style>
 
 
@@ -363,25 +426,7 @@ footer .footer-manu ul li a:hover {
       </div>
 </footer>
 
-    <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
-
-
-<script>$(document).ready(function(){
-
-  $(window).scroll(function(){
-    if($(this).scrollTop() > 40){
-      $('#topBtn').fadeIn();
-    } else{
-      $('#topBtn').fadeOut();
-    }
-  });
-
-  $("#topBtn").click(function(){
-    $('html ,body').animate({scrollTop : 0},800);
-  });
-});
-</script>
-
+  
 
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
