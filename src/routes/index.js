@@ -37,11 +37,10 @@ router.get('/list/found',async (req, res)=>{
 router.get('/list/:id', async (req, res)=>{
     const images = await pool.query('SELECT dir_image FROM image_pet WHERE idpet = ?',[req.params.id]);
 
-    const pet = await pool.query('SELECT u.name, u.email, p.name pet_name,p.specie, p.size, p.datepet,p.sex,p.longitud, p.latitud, p.observation FROM user u, pet p WHERE p.iduser = u.iduser and p.idpet = ?',[req.params.id]);
+    const pet = await pool.query('SELECT u.name, u.email, p.name pet_name,p.specie, p.size, p.direction,p.datepet,p.sex,p.longitud, p.latitud, p.observation FROM user u, pet p WHERE p.iduser = u.iduser and p.idpet = ?',[req.params.id]);
     console.log(pet[0])
     if(pet[0]!==undefined){
         const d = new Date(pet[0].datepet);
-        pet[0].datepet = d.toLocaleDateString();
     }
     
     res.render('links/list/pet', {images, pet: pet[0]});
