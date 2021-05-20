@@ -1,9 +1,10 @@
 const passport = require('passport');
 const Localstrategy = require('passport-local').Strategy;
-
-
 const pool = require('../database');
 const helpers = require('./helpers');
+
+
+
 
 passport.use('local.signup', new Localstrategy({
     usernameField: 'email',
@@ -17,7 +18,7 @@ passport.use('local.signup', new Localstrategy({
         phone,
         email,
         password,
-        date_created: '2000-01-01',
+        date_created: new Date().toLocaleString(),
         type:'user'
     };
 
@@ -38,7 +39,10 @@ passport.use('local.signin', new Localstrategy({
         const user = rows[0];
         const validPassword = await helpers.matchPassword(password, user.password);
         if(validPassword){
-            done(null, user, 'Bienvenido');
+            administrator = rows[0];
+            user.type === 'user'?
+            done(null, user, 'Bienvenido'):
+            done(null, administrator, 'Bienvenido')
         }else{
             done(null, false, req.flash('message', 'Incorrect password'))
         }
@@ -49,7 +53,7 @@ passport.use('local.signin', new Localstrategy({
 
 
 passport.serializeUser((user, done)=>{
-  
+    console.log(user);
     done(null, user.iduser);
 });
 

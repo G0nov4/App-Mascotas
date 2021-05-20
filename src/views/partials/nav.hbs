@@ -1,4 +1,3 @@
-
 <nav>
   <input type="checkbox" id="check" />
   <label for="check" class="checkbtn">
@@ -7,27 +6,46 @@
 
   <label class="logo" onclick="window.location.href='/'"> </label>
 
-  {{#if user}}
+  {{#if administrator}}
     <ul>
       <li>
         <a class="" href="/profile">Perfil</a>
       </li>
-     
+      <li>
+        <a class="" href="/listusers">Usuarios</a>
+      </li>
+      <li>
+        <a class="" href="/listpets">Mascotas</a>
+      </li>
       <li>
         <a class="" href="/contact">Contacto</a>
       </li>
-
-
       <li>
         <a class="logout" href="/logout">Logout</a>
       </li>
     </ul>
+
+  {{else if user}}
+
+    <ul>
+      <li>
+        <a class="" href="/profile">Perfil</a>
+      </li>
+
+      <li>
+        <a class="" href="/contact">Contacto</a>
+      </li>
+      <li>
+        <a class="logout" href="/logout">Logout</a>
+      </li>
+    </ul>
+
   {{else}}
     <ul>
       <li>
         <a class="" href="/">Inicio</a>
       </li>
-    
+
       <li>
         <a class="" href="/contact">Contacto</a>
       </li>

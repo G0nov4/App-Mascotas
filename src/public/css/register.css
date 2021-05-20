@@ -1,8 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
-<<<<<<< HEAD
-*{
-    font-family: var(--font-poppins);
-=======
 @import url('http://fonts.cdnfonts.com/css/baloo-thambi');
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css); 
 
@@ -12,7 +8,7 @@
     width: 100%;
     background-color: #f8efbf;
     padding-bottom: 50px;
->>>>>>> a2150f7ae6140091410b84ef98419b92d57f24c8
+
 }
 .title h1{
     width: 100%;
@@ -258,17 +254,11 @@
     z-index: 20;
     height: 60px;
     line-height: 40px;
-<<<<<<< HEAD
+
     color: #000;
     border-radius: 5px 10px 10px 5px;
     font-weight: 300;
-=======
-    color: #999;
-    border-radius: 10px 20px 20px 10px;
-    font-weight: 450;
->>>>>>> a2150f7ae6140091410b84ef98419b92d57f24c8
 }
-
 .file-upload-wrapper:before {
     content: 'Subir';
     position: absolute;

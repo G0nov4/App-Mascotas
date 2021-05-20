@@ -68,7 +68,15 @@ app.use(multer({storage}).array('image'));
 app.use((req, res, next) =>{
     app.locals.success = req.flash('success');
     app.locals.message = req.flash('message');
-    app.locals.user = req.user;
+    if(req.user != undefined){
+        (req.user.type ==='administrator')?
+        app.locals.administrator = req.user:
+        app.locals.user = req.user
+    }else{
+        app.locals.administrator = req.user
+        app.locals.user = req.user
+    }
+
     next();
 });
 
@@ -77,7 +85,8 @@ app.use(require('./routes'));
 app.use(require('./routes/autentication'));
 
 //--------agregar
-app.use('/links', require('./routes/links'));
+app.use('/', require('./routes/links'));
+app.use('/profile', require('./routes/profile'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
