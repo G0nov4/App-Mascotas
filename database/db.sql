@@ -15,7 +15,7 @@ CREATE TABLE user(
     type VARCHAR(20) NOT NULL -- Administration, user
 );
 
--- Table mascota
+-- Table mascota ---con latitud y longitud
 CREATE TABLE pet(
     idpet INT(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
     iduser INT(11)  NOT NULL,
@@ -29,7 +29,8 @@ CREATE TABLE pet(
     status  VARCHAR(20) NOT NULL,
     direction VARCHAR(255),
     datePet DATE NOT NULL,
-    map VARCHAR(255)
+    longitud VARCHAR(200),
+    latitud VARCHAR(200)
 );
 
 -- Table imagen
@@ -39,6 +40,8 @@ CREATE TABLE image_pet(
     dir_image VARCHAR(255)
 ); 
 
+
+--eliminar map para agregar latitud y longitud
 Alter table pet drop column map;
 alter table pet add longitud VARCHAR(200);
 alter table pet add latitud VARCHAR(200);
