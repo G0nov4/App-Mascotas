@@ -10,6 +10,5 @@ module.exports = {
         password: 'redvelvet',
         database: 'db_rescue_pets'*/
     }
-}
+};
 
-//holi

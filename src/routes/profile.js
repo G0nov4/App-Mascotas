@@ -79,7 +79,7 @@ router.post("/edit/:id", isLogged, async (req, res) => {
 });
 
 router.post("/lost", isLogged, async (req, res) => {
-  const { name_pet, specie, size, sex, date, color, direction, observation } =
+  const { name_pet, specie, size, sex, date, color, direction, observation , latitud, longitud} =
     req.body;
   const files = req.files;
   const newPet = {
@@ -126,7 +126,7 @@ router.post("/lost", isLogged, async (req, res) => {
 });
 
 router.post("/reported", isLogged, async (req, res) => {
-  const { specie, size, sex, date, color, direction, observation } = req.body;
+  const { specie, size, sex, date, color, direction, observation, latitud, longitud } = req.body;
   const files = req.files;
   const newPet = {
     iduser: req.user.iduser,

@@ -41,7 +41,6 @@ router.get('/list/:id', async (req, res)=>{
     console.log(pet[0])
     if(pet[0]!==undefined){
         const d = new Date(pet[0].datepet);
-        pet[0].datepet = d.toLocaleDateString();
     }
     
     res.render('links/list/pet', {images, pet: pet[0]});

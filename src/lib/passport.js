@@ -49,8 +49,7 @@ passport.use('local.signin', new Localstrategy({
     }else{
         return done(null, false, req.flash('message', 'El correo no existe'))
     }
-}))
-
+}));
 
 passport.serializeUser((user, done)=>{
     console.log(user);

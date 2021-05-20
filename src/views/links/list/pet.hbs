@@ -103,9 +103,6 @@
 
     .description .mapa .map-image {
         width: 100%;
-        height: 220px;
-        background-color: skyblue;
-        box-shadow: 3px 0px 30px #bdb9b9;
     }
 
     .description .mapa .map-direction {
@@ -187,6 +184,10 @@
 
 
 
+#map{
+    width:100%
+  
+}
 
 
 footer {
@@ -321,6 +322,16 @@ footer p{
     margin: 20px 10px;
     width: 80%;
 }
+#map{width:100%;
+margin: 0 20px;}
+
+ .description .mapa {
+     width: 100%;
+ }
+    .description .mapa .map-image {
+        display: flex;
+        width: 100%;
+    }
 
     }
 </style>
@@ -332,6 +343,7 @@ footer p{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title></title>
   </head>
+  
 
 
 
@@ -368,10 +380,10 @@ footer p{
         <div class="mapa">
             <div class="map-title">
                 <h2>Dirección</h2>
-                <p>{{pet.direction}}</p>
+                 <p>{{pet.direction}}</p>
             </div>
             <div class="map-image">
-
+<div id="map" ></div>
             </div>
             
         </div>
@@ -448,6 +460,48 @@ footer p{
 </footer>
 
   
+<script>
+
+    function iniciarMapa(){
+        var latitud = {{pet.latitud}};
+        var longitud = {{pet.longitud}};
+
+        coordenadas = {
+            lng: longitud,
+            lat:latitud
+        }
+
+        generarMapa(coordenadas);
+    }
+
+    function generarMapa(coordenadas){
+        var mapa = new google.maps.Map(document.getElementById('map'),
+        {
+            zoom: 12,
+            center: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+        
+        marcador = new google.maps.Marker({
+            map: mapa,
+            draggable: true,
+            position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+
+        marcador.addListener('dragend', function(event){
+            document.getElementById("latitud").value = this.getPosition().lat();
+            document.getElementById("longitud").value = this.getPosition().lng(); 
+        })
+    }
+
+
+</script>
+<!--//AIzaSyCg2vWi7xAjxeEFENIcDvUPDawxlCBjJuU//-->
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg2vWi7xAjxeEFENIcDvUPDawxlCBjJuU&callback=iniciarMapa" type="text/javascript"></script>
+
+
 
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
