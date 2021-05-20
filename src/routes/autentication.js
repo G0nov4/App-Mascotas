@@ -108,6 +108,8 @@ router.post("/profile/lost", isLogged, async (req, res) => {
     color,
     direction,
     observation,
+    latitud,
+    longitud
   } = req.body;
   const files = req.files;
   const newPet = {
@@ -121,7 +123,8 @@ router.post("/profile/lost", isLogged, async (req, res) => {
     status: "lost",
     direction,
     datePet: (new Date(date)).toLocaleDateString(),
-    map: "ttt",
+    latitud,
+    longitud
   };
   const result = await pool.query("Insert into pet set ?", [newPet]);
 
@@ -162,6 +165,8 @@ router.post("/profile/reported", isLogged, async (req, res) => {
     color,
     direction,
     observation,
+    latitud,
+    longitud
   } = req.body;
   const files = req.files;
   const newPet = {
@@ -175,7 +180,8 @@ router.post("/profile/reported", isLogged, async (req, res) => {
     status: "reported",
     direction,
     datePet: (new Date(date)).toLocaleDateString(),
-    map: "map1",
+    latitud,
+    longitud
   };
   const result = await pool.query("Insert into pet set ?", [newPet]);
 

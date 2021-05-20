@@ -1,3 +1,6 @@
+<head> 
+   
+</head>
 
 <div class="container">
    <div class="title">
@@ -50,7 +53,7 @@
                 <input type="text" name="color" placeholder="Color" required />
             </div>
             <div class="item">
-                <p>Direccion</p>
+                <p>Dirección</p>
                 <input type="text" name="direction" placeholder="Ingresa direccion" required />
             </div>
             <div class="description">
@@ -93,12 +96,118 @@
                     <input name="image" type="file" class="file-upload-field" value="" />
                 </div>
             </div>
+        
+        
+            <h2>Mueve el marcador del Mapa en la dirección donde se perdió tu mascota.</h2> 
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="latitud">Latitud:  </label>
+                        <input type="text" name="latitud" id="latitud" class="form-control" readonly onmousedown="return false;">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="longitud">Longitud:</label>
+                        <input type="text" name="longitud" id="longitud" class="form-control" readonly onmousedown="return false;">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="map"></div>
+                 </div>
+            </div>    
+        
+        
         </div>
+
+
+       
+
       
-    
+
+
+
 
     </form>
+
 </div>
+
+
+
+<script>
+    function iniciarMapa(){
+        var latitud = -16.5;
+        var longitud = -68.15;
+
+        coordenadas = {
+            lng: longitud,
+            lat:latitud
+        }
+
+        generarMapa(coordenadas);
+    }
+
+    function generarMapa(coordenadas){
+        var mapa = new google.maps.Map(document.getElementById('map'),
+        {
+            zoom: 12,
+            center: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+        
+        marcador = new google.maps.Marker({
+            map: mapa,
+            draggable: true,
+            position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+
+        marcador.addListener('dragend', function(event){
+            document.getElementById("latitud").value = this.getPosition().lat();
+            document.getElementById("longitud").value = this.getPosition().lng(); 
+        })
+    }
+
+   /* function initMap() {
+    const myLatlng = { lat: -25.363, lng: 131.044 };
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: myLatlng,
+    });
+    // Create the initial InfoWindow.
+    let infoWindow = new google.maps.InfoWindow({
+      content: "Click the map to get Lat/Lng!",
+      position: myLatlng,
+    });
+    infoWindow.open(map);
+    // Configure the click listener.
+    map.addListener("click", (mapsMouseEvent) => {
+      // Close the current InfoWindow.
+      infoWindow.close();
+      // Create a new InfoWindow.
+      infoWindow = new google.maps.InfoWindow({
+        position: mapsMouseEvent.latLng,
+      });
+      infoWindow.setContent(
+        JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+      );
+      infoWindow.open(map);
+    });
+  }*/
+
+
+
+
+</script>
+<!--//AIzaSyCg2vWi7xAjxeEFENIcDvUPDawxlCBjJuU//-->
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQq74G_t5lLaP1lwL_ZkC3NqbyLHTYGko&callback=iniciarMapa" type="text/javascript"></script>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

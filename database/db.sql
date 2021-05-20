@@ -39,6 +39,11 @@ CREATE TABLE image_pet(
     dir_image VARCHAR(255)
 ); 
 
+Alter table pet drop column map;
+alter table pet add longitud VARCHAR(200);
+alter table pet add latitud VARCHAR(200);
+
+
 DESCRIBE user;
 
 DESCRIBE pet;
