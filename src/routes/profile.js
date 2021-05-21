@@ -7,13 +7,13 @@ const fs = require("fs-extra");
 const tinify = require("tinify");
 
 // Tinify
-tinify.key = "wXlgtF85jgcBKBjvskhHrg6yK7qtJM2F";
+tinify.key = process.env.TINIFY_KEY;
 
 // Cloudinary
 cloudinary.config({
-  cloud_name: "dchkhw7or",
-  api_key: 799394818649236,
-  api_secret: "YCBcHm_c70foHewvSPPzh6eOnQQ",
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 //profile - perfil

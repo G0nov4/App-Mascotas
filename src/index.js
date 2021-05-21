@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const multer = require('multer');
@@ -9,7 +10,6 @@ const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-ac
 const { database } = require('./keys');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
-const Handlebars = require('handlebars')
 
 
 
