@@ -96,12 +96,36 @@ font-size: 1.3rem;
         text-transform: uppercase;
 
     }
+
+    #topBtn{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 22px;
+  width: 55px;
+  height: 55px;
+  background: #EF5030;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none;
+  border-radius: 30px;
+}
+
+
+
         @media (max-width:430px){
         .container >h1{
             margin: 0;
             padding: 10px;
             text-align: center;
             font-size: 1.5rem;
+        }
+        #topBtn{
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
+        
         }
     }
 </style>
@@ -131,7 +155,24 @@ font-size: 1.3rem;
         {{/each}}
 
     </div>
-
+    
 
 
 </div>
+<button id="topBtn"><i class="fas fa-arrow-up"></i></button>
+
+<script>$(document).ready(function(){
+
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 40){
+      $('#topBtn').fadeIn();
+    } else{
+      $('#topBtn').fadeOut();
+    }
+  });
+
+  $("#topBtn").click(function(){
+    $('html ,body').animate({scrollTop : 0},800);
+  });
+});
+</script>
