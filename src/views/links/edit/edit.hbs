@@ -55,7 +55,7 @@
         <h1>Editor de mascota</h1>
     </div>
     
-    <form action="/profile/lost" class="form" method="POST" enctype="multipart/form-data">
+    <form action="/profile/edit/{{id}}" class="form" method="POST" enctype="multipart/form-data">
         <div class="register-pet">
             <h2>Mascota</h2>
             <br />
@@ -107,43 +107,5 @@
                 <button type="submit">Editar</button>
             </div>
         </div>
-        
-        <aside class="images">
-           
-            <h2>Elimina o sube fotos de la mascota</h2>
-            <div class="list-images">
-                <form action="/profile/edit/{{idpet}}" method="delete">
-                         {{#each images}}
-                <div class="edit-card">
-                    <img class="edit-card-img" src="{{dir_image}}" alt="{{dir_image}}">
-                    <div class="edit_buttons">
-                        <button >DELETE </button>
-                    </div>
-                    </div>
-            {{/each}}
-            
-                </div>
-            <div class="images">
-                 <div class="image">
-        <div class="file-upload-wrapper" data-text="Sube a tu mascota..!">
-          <input name="image" type="file" class="file-upload-field" value="" />
-        </div>
-      </div>
-            </div>
-            
-            </div>
-         
-            
-        </aside>
     </form>
 </div>
-
-
-<script
-  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-></script>
-<script>
-  $("form").on("change", ".file-upload-field", function(){ 
-    $(this).parent(".file-upload-wrapper").attr("data-text",         $(this).val().replace(/.*(\/|\\)/, '') );
-});
-</script>

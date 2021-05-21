@@ -59,22 +59,29 @@ router.get("/delete/:id", isLogged, async (req, res) => {
 
 router.get("/edit/:id", isLogged, async (req, res) => {
   const { id } = req.params;
-  const images = await pool.query(
-    "SELECT dir_image FROM image_pet WHERE idpet = ?",
-    [id]
-  );
+  
   const pet = await pool.query("SELECT * FROM  pet WHERE idpet = ?", [id]);
-  res.render("links/edit/edit.hbs", { images, pet: pet[0] });
+  res.render("links/edit/edit.hbs", { pet: pet[0] , id});
 });
 
 router.post("/edit/:id", isLogged, async (req, res) => {
   const { id } = req.params;
-
-  const result = await cloudinary.v2.uploader
-    .destroy(deletePet[0].public_id)
-    .catch((err) => {
-      res.send("<h2>Error al eliminar imagen/h2>");
-    });
+  const { name_pet, specie, size, sex, date, color, direction, observation } =
+  req.body
+const newPet = {
+  iduser: req.user.iduser,
+  name: name_pet,
+  specie,
+  size,
+  sex,
+  color,
+  observation,
+  status: "lost",
+  direction,
+  datePet: new Date(date).toLocaleDateString(),
+};
+console.log(newPet, id)
+await pool.query('UPDATE pet set ? WHERE idpet = ?',[newPet, id])
   res.redirect("/profile");
 });
 
@@ -114,13 +121,15 @@ router.post("/lost", isLogged, async (req, res) => {
         console.error(err);
       })
       .then(console.log("Se subio la imagen :v"));
+      console.log(newPath, path)
     const newImage = {
       idpet: idPet,
       dir_image: newPath.url,
       public_id: newPath.public_id,
     };
-    await pool.query("Insert into image_pet set ?", [newImage]);
     await fs.unlink(path);
+    await pool.query("Insert into image_pet set ?", [newImage]);
+    
   }
   res.redirect("/profile");
 });

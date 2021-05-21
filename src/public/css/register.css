@@ -1,346 +1,359 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
-@import url('http://fonts.cdnfonts.com/css/baloo-thambi');
-@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css); 
+@import url("http://fonts.cdnfonts.com/css/baloo-thambi");
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
 
-.container  {
-    
-    height: 100%;
-    width: 100%;
-    background-color: #f8efbf;
-    padding-bottom: 50px;
-
+.container {
+  height: 100%;
+  width: 100%;
+  background-color: #f8efbf;
+  padding-bottom: 50px;
 }
 
-.title h1{
-    width: 100%;
-    text-align: center;
-    padding: 15px 0 10px 0;
-    font-family: "baloo-thambi", sans-serif;
-    font-weight: 1000;
-    color: #108896;
+.title h1 {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0 10px 0;
+  font-family: "baloo-thambi", sans-serif;
+  font-weight: 1000;
+  color: #108896;
 }
 
 .form {
-    margin: 20px 0 0 0;
-    width:
-        100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    font-family: var(--font-poppins);
+  margin: 20px 0 0 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  font-family: var(--font-poppins);
 }
 
 .form h2 {
-    color: var(--cl-secondary);
+  color: var(--cl-secondary);
 }
 
 .form .register-pet {
-    padding: 20px 30px 0px 30px;
-    margin-top: 12px;
-    border-radius: 30px;
-    background-color: #a5e1ad;
-    margin-left: 100px;
-    box-shadow: 10px 0px 20px #cecece;
-    width: 80%;
+  padding: 20px 30px 0px 30px;
+  margin-top: 12px;
+  border-radius: 30px;
+  background-color: #a5e1ad;
+  margin-left: 100px;
+  box-shadow: 10px 0px 20px #cecece;
+  width: 80%;
 }
 
 .register-pet h2 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin: 20px 40px 0px 80px;
-    padding: 0;
-    color: #353131;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 20px 40px 0px 80px;
+  padding: 0;
+  color: #353131;
 }
 .register-pet h3 {
-    margin-left:40px;
-    color: #18584d;
+  margin-left: 40px;
+  color: #18584d;
 }
 
 .register-pet p {
-    padding: 19px;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 0.9rem;
-    font-weight: 200;
+  padding: 19px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+  font-weight: 200;
 }
 
 .register-pet .item {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin-right: 0px;
-
-    
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 0px;
 }
 
 .register-pet .item p {
-    width: 150px;
-    font-size: 15px;
-    font-weight: bold;
-    text-align: left;
+  width: 150px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
 }
 
 .register-pet .item input {
-    width: 45%;
-    height: 40px;
-    background-color: transparent;
-    margin: 0;
-    border: none;
-    border-bottom: 1px solid var(--cl-secondary);
-    bottom: 0;
+  width: 45%;
+  height: 40px;
+  background-color: transparent;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid var(--cl-secondary);
+  bottom: 0;
 }
 .register-pet .item input:focus {
-    outline: none;
-    color: #5e5d5d;
+  outline: none;
+  color: #5e5d5d;
 }
 
-
-
 .register-pet .item select {
-    width: 44%;
-    height:40px;
-    margin-left: 2px;
-    border-bottom: 1px solid var(--cl-secondary);
-      clear: left;
-      box-shadow:none;
-      border:0!important;
-      background-color: #5c6664;
-      padding: 0 .9em;
-      color:#fff;
-      cursor:pointer;
-      font-size: 1em;
-      font-family: 'Open Sans', sans-serif;
-     
+  width: 44%;
+  height: 40px;
+  margin-left: 2px;
+  border-bottom: 1px solid var(--cl-secondary);
+  clear: left;
+  box-shadow: none;
+  border: 0 !important;
+  background-color: #5c6664;
+  padding: 0 0.9em;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Open Sans", sans-serif;
 }
 
 .register-pet .item select::-ms-expand {
-    display: none;
+  display: none;
+}
 
- }
-
-
- .register-pet .item .size::after {
-    content: '\25BC';
-    position: relative;
-    top: 0;
-    right: 0;
-    padding: 0 1em;
-    background: #2b2e2e;
-    cursor:pointer;
-    pointer-events:none;
-    transition:.25s all ease;
- }
-
+.register-pet .item .size::after {
+  content: "\25BC";
+  position: relative;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #2b2e2e;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
 
 .register-pet .description {
-    width: 100%;
-    display:
-        flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .register-pet .description p {
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 40px;
 }
 
 .register-pet .description .observation textarea {
-    resize:
-        none;
-    padding: 5px ;
-    margin-left: 10%;
-    margin-bottom: 20px;
-    width: 75%;
-    height: 200px;
-    border: 1px solid #DBE1EB;
-    font-family: Arial, Verdana;
-    border-radius: 4px;
+  resize: none;
+  padding: 5px;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  width: 75%;
+  height: 200px;
+  border: 1px solid #dbe1eb;
+  font-family: Arial, Verdana;
+  border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
-  background: #FFFFFF;
-  background: linear-gradient(left, #FFFFFF, #F7F9FA);
-  background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
-  background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
-  background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
-  color: #2E3133;
+  background: #ffffff;
+  background: linear-gradient(left, #ffffff, #f7f9fa);
+  background: -moz-linear-gradient(left, #ffffff, #f7f9fa);
+  background: -webkit-linear-gradient(left, #ffffff, #f7f9fa);
+  background: -o-linear-gradient(left, #ffffff, #f7f9fa);
+  color: #2e3133;
 }
-.register-pet .description .observation textarea:focus
-  {
-  color: #2E3133;
-  border-color: #FBFFAD;
-  }
+.register-pet .description .observation textarea:focus {
+  color: #2e3133;
+  border-color: #fbffad;
+}
 
 .register-pet .description .observation small {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .register-pet .btn {
-    margin-top:
-        10px;
+  margin-top: 10px;
 }
 
 .register-pet .btn button {
-
-
-    width: 50%;
-        margin: 0 0 30px 110px;
-        border: none;
-        background: #FF6C3E ;
-        text-align: center;	
-        color: #fff;
-        border: none;
-        font-weight: bold;
-        display: inline-block;
-        padding: 14px 25px;
-        font-size: 1.1em;
-        text-transform: uppercase;
-        border-radius: 30px;
-        box-shadow: -13px 0px 0 0px #ffcc29;
+  width: 50%;
+  margin: 0 0 30px 110px;
+  border: none;
+  background: #ff6c3e;
+  text-align: center;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  display: inline-block;
+  padding: 14px 25px;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  box-shadow: -13px 0px 0 0px #ffcc29;
 }
 
-.register-pet .btn button:hover {background-color: #108896;
-    box-shadow: 0 0 0 0;
-    text-decoration: none;
+.register-pet .btn button:hover {
+  background-color: #108896;
+  box-shadow: 0 0 0 0;
+  text-decoration: none;
 }
 .register-pet .btn button:active {
-      background-color: #108896;
-      
+  background-color: #108896;
 }
 
-
-.form .images{
-    padding: 10px;
-    background-color: #ffb26b;
-    margin-top: 10px;
-    margin-right: 100px;
-    border-radius: 30px;
-    box-shadow: 10px 0px 20px #cecece;
-    
+.form .images {
+  padding: 10px;
+  background-color: #ffb26b;
+  margin-top: 10px;
+  margin-right: 100px;
+  border-radius: 30px;
+  box-shadow: 10px 0px 20px #cecece;
 }
 .form .images .image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
-  .form .images h2{
-      text-align: center;
-    margin: 30px;
-    color: #353131
+.form .images h2 {
+  text-align: center;
+  margin: 30px;
+  color: #353131;
 }
 
 .file-upload-wrapper {
-    position: relative;
-    width: 70%;
-    height: 60px;
-    
+  position: relative;
+  width: 70%;
+  height: 60px;
 }
 
 .file-upload-wrapper:after {
-    content: attr(data-text);
-    font-size: 18px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #d7f7e7;
-    padding: 10px 15px;
-    display: block;
-    width: calc(100% - 40px);
-    pointer-events: none;
-    z-index: 20;
-    height: 60px;
-    line-height: 40px;
-    color: #000;
-    border-radius: 5px 10px 10px 5px;
-    font-weight: 300;
+  content: attr(data-text);
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #d7f7e7;
+  padding: 10px 15px;
+  display: block;
+  width: calc(100% - 40px);
+  pointer-events: none;
+  z-index: 20;
+  height: 60px;
+  line-height: 40px;
+  color: #000;
+  border-radius: 5px 10px 10px 5px;
+  font-weight: 300;
 }
 .file-upload-wrapper:before {
-    content: 'Subir';
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-block;
-    height: 60px;
-    background: #4daf7c;
-    color: #fff;
-    font-weight: 700;
-    z-index: 25;
-    font-size:
-        16px;
-    line-height: 60px;
-    padding: 0 15px;
-    text-transform: uppercase;
-    pointer-events: none;
-    border-radius: 0 10px 10px 0;
+  content: "Subir";
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  height: 60px;
+  background: #4daf7c;
+  color: #fff;
+  font-weight: 700;
+  z-index: 25;
+  font-size: 16px;
+  line-height: 60px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  pointer-events: none;
+  border-radius: 0 10px 10px 0;
 }
 
 .file-upload-wrapper:hover:before {
-    background: #3d8c63;
+  background: #3d8c63;
 }
 
 .file-upload-wrapper input {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-    display:
-        block;
-    cursor: pointer;
-    width: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  cursor: pointer;
+  width: 100%;
 }
 .form-group label {
-    margin-left:25%;
-    text-align: center;
-    align-items: center;
-    
- }
- .form-group #longitud{
-     margin-left: 1px;
- } 
- .form-group input {
-   width: 35%;
-   margin-left: 15px;
-   margin-bottom: 3px;
-   text-align: center;
-   padding: 3px 0px 3px 0px;
-   font-weight: lighter;
-   border-radius: 6px;
-   border: 1px solid rgb(51, 123, 160);
- }
- #map{
-    width: 500px; 
-    height: 300px;
-    align-items: center;
-    margin: 20px 0 0 25px;
-    border-radius: 10px;
- }
-@media (max-width:768px) {
-    .file-upload-wrapper:after,
-    .file-upload-wrapper:before {
-        font-size: 13px;
-    }
-    
-    .register{
-        flex-direction: column;
-    }
-    .register .form{
-        grid-template-columns: 1fr;
-    }
-    .register-pet{
-        grid-row: 2;
-    }
-    .btn button{
-        width: 100%;
-    }
+  margin-left: 25%;
+  text-align: center;
+  align-items: center;
+}
+.form-group #longitud {
+  margin-left: 1px;
+}
+.form-group input {
+  width: 35%;
+  margin-left: 15px;
+  margin-bottom: 3px;
+  text-align: center;
+  padding: 3px 0px 3px 0px;
+  font-weight: lighter;
+  border-radius: 6px;
+  border: 1px solid rgb(51, 123, 160);
+}
+#map {
+  width: 100%;
+  height: 300px;
+  align-items: center;
+  margin: 30px auto 0 auto;
+  border-radius: 30px;
+}
+@media (max-width: 768px) {
+  .form .images h2 {
+    margin: 10px;
+  }
+  .form {
+    grid-template-columns: 1fr;
+  }
+  .form .images {
+    padding: 0;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .form .register-pet {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .file-upload-wrapper:after,
+  .file-upload-wrapper:before {
+    font-size: 13px;
+  }
+
+  .file-upload-wrapper:after {
+    line-height: 20px;
+  }
+
+  .register {
+    flex-direction: column;
+  }
+  .register .form {
+    grid-template-columns: 1fr;
+  }
+  .form .register-pet {
+    padding: 0;
+    grid-row: 2;
+  }
+  .register-pet .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .register-pet .item input {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .register-pet .item select {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .register-pet h2 {
+    margin: 20px;
+  }
+  .btn button {
+    width: 100%;
+  }
 }

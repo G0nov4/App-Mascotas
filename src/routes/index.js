@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
-const { isLogged, isNotLogged } = require('../lib/auth')
+
 
 const consultQuery = (state) => "select p.idpet,p.observation,  p.name,p.datepet, p.specie, p.status, p.direction, p.longitud, p.latitud, max(i.dir_image)url from pet p, image_pet i where p.idpet = i.idpet and p.status = "+state+" group by p.idpet";
 
@@ -11,19 +11,11 @@ router.get('/', (req, res)=>{
 
 router.get('/list/report',async (req, res)=>{
     const pets = await pool.query(consultQuery("'reported'"));
-     // adjuntar fecha
-
-
-    //
     res.render('links/list/reported', {pets});
 });
 
 router.get('/list/lost',async (req, res)=>{
     const pets = await pool.query(consultQuery("'lost'"));
-    // adjuntar fecha
-
-
-    //
     res.render('links/list/lost', {pets});
 });
 
